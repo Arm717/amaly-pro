@@ -1,44 +1,43 @@
-"use client";
-import Link from "next/link";
-import React, { useState } from "react";
+'use client';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import Button from '../../button/Button';
+import { IAllCategory } from './types';
 
-function HeaderNav() {
+interface ICategorys {
+  category: IAllCategory;
+}
+
+function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-     <div className="flex relative items-center justify-center w-full  text-sm">
-        <nav className="flex фонт-медиум gap-6 w-[225px]">
-          <Link className="" href="/1">
-            О нас
-          </Link>
-          <Link href="/2" onClick={()=> setMenuOpen((prev) => !prev)} >Меню</Link>
-          <Link href="/3">Контакты</Link>
-        </nav>
-        {menuOpen && (
-        <div className="absolute top-full right bg-white border-2 border-yellow-400 rounded mt-2 w-[260px] h-[288px] z-50">
-          <ul className=" text-sm text-gray-800">
-            {[
-              "Супы",
-              "Горячее",
-              "Гарниры",
-              "Салаты",
-              "Закуски",
-              "Выпечка и десерты",
-              "Летнее меню",
-              "Соусы",
-              "Закуски и снэки",
-              "Замороженные полуфабрикаты",
-              "Ягоды шоковой заморозки",
-            ].map((item) => (
-              <li key={item}>
-                <Link href="/" className="block px-4  hover:bg-gray-100">
-                  {item}
+    <div className='flex relative items-center justify-center '>
+      <nav className='flex gap-6 w-[225px]'>
+        <Link className='' href='/1'>
+          О нас
+        </Link>
+
+        <Button variant='headerNavBtn' onClick={() => setMenuOpen((prev) => !prev)}>
+          Меню
+        </Button>
+
+        <Link href='/3'>Контакты</Link>
+      </nav>
+      {menuOpen && (
+        <div className='absolute top-[50px] left-[50px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-50'>
+          <ul className=' text-sm text-[#A4A4A4]'>
+            {category.map((item) => (
+              <li className='px-4 py-1' key={item.id}>
+                <Link href='/' className='block '>
+                  {item.name}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
       )}
-      </div>
+    </div>
   );
 }
 

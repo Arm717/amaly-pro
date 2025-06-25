@@ -1,29 +1,30 @@
-import React from "react";
+import React from 'react';
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
 
-import Text from "../text/Text";
-import HeaderNav from "./header-nav/HeaderNav";
+import Text from '../text/Text';
+import HeaderNav from './header-nav/HeaderNav';
+import { allCategory } from '@/app/services/allCategory';
 
-function Header() {
+async function Header() {
+  const category = await allCategory();
+  
   return (
-    <header className="relative font-Fira GO flex w-full h-[71px] bg-yellow-400">
-      <div className="absolute top-[-20px] left-[20px]">
-        <Image src="/headerLogo.png" width={127} height={213} alt="logo" />
-      </div>
+    <header className='  flex w-full h-[71px] justify-center bg-yellow-400'>
+      <div className='relative flex h-full w-[1780px] justify-between'>
+        <div className='absolute top-[-20px] left-[0]'>
+          <Image src='/headerLogo.png' width={127} height={213} alt='logo' />
+        </div>
 
-      
-        <HeaderNav />
-      
+        <div className='flex w-[127px]'>.</div>
 
-      <div className="absolute flex top-[20px] right-[40px] gap-10">
-        <Image src="/searchLogo.png" width={24} height={24} alt="serch" />
-        <Text
-          className="text-white text-xl font-bold"
-          as="span"
-          value="8 992-225-55-12"
-        />
+        <HeaderNav category={category} />
+
+        <div className='flex items-center gap-10'>
+          <Image src='/searchLogo.png' width={24} height={24} alt='serch' />
+          <Text className='text-white text-xl font-bold' as='span' value='8 992-225-55-12' />
+        </div>
+
       </div>
     </header>
   );
