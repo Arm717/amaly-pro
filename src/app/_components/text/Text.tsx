@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 
-type TextSize = "sm" | "md" | "lg";
+type TextSize = "sm" | "base" | "md" | "lg"| 'xlg';
 type Itext = "p" | "span";
 
 type TextProps<T extends ElementType = Itext> = {
@@ -9,9 +9,17 @@ type TextProps<T extends ElementType = Itext> = {
   value: string | number;
 } & React.ComponentPropsWithoutRef<T>;
 
-function Text({ value, fontSize = "sm", as = "p", ...rest }: TextProps) {
+const Text_Size = {
+  sm: 'text-sm',
+  base: 'text-base',
+  md: 'text-2xl',
+  lg: 'text-4xl',
+  xlg: 'text-7xl'
+} as const;
+
+function Text({ value, fontSize = "base", as = "p", ...rest }: TextProps) {
   const Component = as;
-  return <Component {...rest}>{value}</Component>;
+  return <Component className={`${Text_Size[fontSize]}`} {...rest}>{value}</Component>;
 }
 
 export default Text;

@@ -9,8 +9,7 @@ export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const BUTTON_VARIANT = {
   icon: "",
-  headerNavBtn: ' text-black',
- 
+  headerNavBtn: 'flex text-black gap-2 items-center',
 } as const;
 
 export default function Button({
@@ -22,7 +21,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${BUTTON_VARIANT[variant]} button`}
+      className={`${BUTTON_VARIANT[variant]}`}
       {...reset}
     >
       {children}

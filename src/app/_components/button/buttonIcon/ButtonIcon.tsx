@@ -2,16 +2,20 @@ import React from 'react'
 import Button, { IButton } from '../Button'
 import { StaticImageData } from 'next/image';
 import Image from 'next/image'
-import styles from './buttonIcon.module.css'
+import Text from '../../text/Text';
 
 interface ButtonIconProps extends IButton{
      icon:  StaticImageData | string;
+     title?: string ;
+     width: number;
+     height: number;
 }
 
-function ButtonIcon({icon}:ButtonIconProps) {
+function ButtonIcon({icon, title, width, height, onClick}:ButtonIconProps) {
   return (
-        <Button variant='icon'>
-            <Image className={styles.buttonIcon} src={icon} alt="" width={40} height={40} />
+        <Button onClick={onClick} variant='headerNavBtn' >
+            {title && <Text as='span' value={title} />} 
+            <Image  src={icon} alt="" width={width} height={height} unoptimized={typeof icon === "string"} />
         </Button>
     
   )

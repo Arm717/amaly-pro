@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link
-        href="https://fonts.googleapis.com/css2?family=Fira+GO&family=Neucha&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+GO:wght@400;500;700&family=Neucha&display=swap"
         rel="stylesheet"
       />
 
