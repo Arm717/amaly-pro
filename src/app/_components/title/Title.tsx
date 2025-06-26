@@ -1,4 +1,3 @@
-
 import type { JSX } from "react";
 import styles from "./title.module.css";
 

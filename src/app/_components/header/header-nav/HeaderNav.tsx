@@ -28,9 +28,7 @@ function HeaderNav({ category }: ICategorys) {
           onClick={() => setMenuOpen((prev) => !prev)}
         />
 
-        {/* <Button variant='headerNavBtn' onClick={() => setMenuOpen((prev) => !prev)}>
-          Меню
-        </Button> */}
+      
 
         <Link href="/3">Контакты</Link>
       </nav>

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Button, { IButton } from '../Button'
 import { StaticImageData } from 'next/image';
