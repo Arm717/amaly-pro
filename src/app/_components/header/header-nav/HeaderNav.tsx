@@ -13,8 +13,8 @@ function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex relative items-center justify-center ">
-      <nav className="flex font-firaGo font-medium gap-6 ">
+    <div className="flex  relative  items-center justify-center ">
+      <nav className="flex font-firaGo  font-medium gap-6 ">
         <Link className="" href="/1">
           О нас
         </Link>
@@ -27,8 +27,6 @@ function HeaderNav({ category }: ICategorys) {
           title="Меню"
           onClick={() => setMenuOpen((prev) => !prev)}
         />
-
-      
 
         <Link href="/3">Контакты</Link>
       </nav>
