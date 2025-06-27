@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import Button from "../../button/Button";
 import { IAllCategory } from "./types";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 
@@ -13,9 +12,9 @@ function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex  relative  items-center justify-center ">
-      <nav className="flex font-firaGo  font-medium gap-6 ">
-        <Link className="" href="/1">
+    <div className="flex relative  items-center justify-center max-md:hidden">
+      <nav className="flex font-firaGo font-medium gap-6 ">
+        <Link  href="/1">
           О нас
         </Link>
 
@@ -31,10 +30,10 @@ function HeaderNav({ category }: ICategorys) {
         <Link href="/3">Контакты</Link>
       </nav>
       {menuOpen && (
-        <div className="absolute top-[50px] left-[65px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-50">
-          <ul className="font-firaGo font-regular px-2 text-[#A4A4A4]">
+        <div className="absolute top-[50px] left-[65px] py-[8px] px-[10px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-50">
+          <ul className="font-firaGo  gap-6 text-[#A4A4A4]">
             {category.map((item) => (
-              <li className="" key={item.id}>
+              <li className="font-medium" key={item.id}>
                 <Link href="/" className="block ">
                   {item.name}
                 </Link>
