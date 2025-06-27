@@ -1,10 +1,10 @@
-export type IAllCategory = ICategory[];
+// export type IAllCategory = ICategory[];
 
-interface ICategory {
-    id:number;
-    name:string;
-    image:string;
-    status:number;
-    created_at: string;
-    updated_at: string;
-}
+// export interface ICategory {
+//     id:number;
+//     name:string;
+//     image:string;
+//     status:number;
+//     created_at: string;
+//     updated_at: string;
+// }

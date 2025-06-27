@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { IAllCategory } from "./types";
-import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 
-interface ICategorys {
-  category: IAllCategory;
-}
+import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
+import { ICategorys } from "@/app/types";
+
+
 
 function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);

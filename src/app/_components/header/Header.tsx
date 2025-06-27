@@ -23,7 +23,7 @@ async function Header() {
 
         <HeaderNav category={category} />
 
-        <HeaderRightSide />
+        <HeaderRightSide category={category}/>
       </div>
     </header>
   );
