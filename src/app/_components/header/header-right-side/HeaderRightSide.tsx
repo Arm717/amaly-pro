@@ -8,7 +8,7 @@ import { ICategorys } from "@/app/types";
 
 function HeaderRightSide({ category }: ICategorys) {
   const [openSearch, setOpenSearch] = useState(false);
-  const  [openBurger, setOpenBurger] = useState(false)
+  const [openBurger, setOpenBurger] = useState(false);
   return (
     <div className="flex re items-center gap-10 w-[650px] justify-end max-2xl:w-[250px] max-2xl:gap-5">
       {openSearch ? (
@@ -37,7 +37,7 @@ function HeaderRightSide({ category }: ICategorys) {
         <ButtonIcon onClick={() => setOpenBurger((prev) => !prev)} width={24} height={24} variant="icon" icon="/burger.png" />
       </div>
 
-     {openBurger && <HeaderSectionRight category={category} />} 
+     {openBurger && <HeaderSectionRight closeAside={() => setOpenBurger((prev) =>! prev)} category={category} />} 
 
       <a href="tel:+79856486681" className="max-md:hidden">
         <Text

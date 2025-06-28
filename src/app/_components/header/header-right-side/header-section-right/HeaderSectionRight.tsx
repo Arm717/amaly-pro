@@ -1,51 +1,82 @@
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
-import { ICategorys } from "@/app/types";
+import Input from "@/app/_components/input/Input";
+import { IAllCategory, ICategorys } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-function HeaderSectionRight({ category }: ICategorys) {
+interface IHeaderAside {
+  category: IAllCategory,
+  closeAside: () => void
+}
+
+function HeaderSectionRight({ category, closeAside }: IHeaderAside) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex absolute w-[210px] h-[100vh] top-0 right-[-20px] bg-yellow-400 z-50 shadow-xl">
-      <div className="relative w-full">
-        <div className="absolute right-[20px] top-[20px] ">
+    <div className="fixed top-0 right-0 w-[260px] h-screen bg-yellow-400 z-50 shadow-xl px-4 py-6 flex flex-col justify-between">
+   
+      <div>
+        <div className="flex justify-end mb-4">
           <ButtonIcon
+          onClick={closeAside}
             icon="/x.png"
             variant="headerNavBtn"
-            width={16}
-            height={16}
+            width={20}
+            height={20}
           />
-          {/* <Image src='/x.png' width={16} height={16} alt=''/> */}
         </div>
 
-        <div className="flex flex-col w-[72px] h-[121px]  justify-between gap-col-[32px] mt-[71px] ml-[20px] font-firaGo font-medium">
-          <Link href="/1">О нас</Link>
+      
+        <div className="flex mb-6 justify-center">
+          <Input
+          placeholder="Найти"
+          variant="headerAside"
+          leftIcon="/searchLogo.png"
+          altLeftIcon="Поиск"
+          altRightIcon="Очистка"
+        />
+        </div>
 
-          <ButtonIcon
-            width={16}
-            height={16}
-            variant="headerNavBtn"
-            icon="/chevron-up.png"
-            title="Меню"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          />
+    
+        <nav className="flex flex-col font-firaGo font-medium text-black gap-[32px]">
+          <div>
+            <Link href="/about">О нас</Link>
+          </div>
+         
 
-          {menuOpen && (
-            <div className="  w-[158px] ">
-              <ul className="font-firaGo text-sm font-normal gap-8 text-[#594700]">
+          
+           <div className="relative ">
+            <ButtonIcon onClick={() => setMenuOpen((prev) => !prev)} icon={menuOpen?'/chevron-up.png':'/chevron-down.png'} title="Меню" width={12} height={12} variant="headerNavBtn"  />
+           
+
+            {menuOpen && (
+              <ul className="mt-2 ml-2 text-sm font-normal space-y-2 text-[#594700]">
                 {category.map((item) => (
-                  <li className="font-medium" key={item.id}>
-                    <Link href="/" className="block ">
-                      {item.name}
-                    </Link>
+                  <li key={item.id}>
+                    <Link href="/">{item.name}</Link>
                   </li>
                 ))}
               </ul>
-            </div>
-          )}
+            )}
+          </div>
 
-          <Link href="/3">Контакты</Link>
+          <div>
+             <Link href="/contacts">Контакты</Link>
+          </div>
+
+         
+        </nav>
+      </div>
+
+      <div className="space-y-4">
+        <button className="flex items-center gap-2">
+          <Image src="/logout.png" width={18} height={18} alt="Выйти" />
+          <span className="font-medium">Выйти</span>
+        </button>
+
+        <div className="flex text-2xl font-semibold text-white justify-center">
+          8 992-225-55-12
         </div>
       </div>
     </div>
