@@ -1,4 +1,5 @@
-import { IAllCategory } from "../_components/header/header-nav/types";
+import { IAllCategory } from "../types";
+
 
 
 export async function allCategory():Promise<IAllCategory> {
