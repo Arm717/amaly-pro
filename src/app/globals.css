@@ -63,6 +63,33 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Neucha';
+  src: url('/fonts/Neucha.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes shake-horizontal {
+  0% {
+    transform: translateX(3px);
+  }
+  33% {
+    transform: translateX(-3px);
+  }
+  67% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(3px);
+  }
+}
+
+.shake-horizontal {
+  animation: shake-horizontal 0.8s linear infinite;
+}
+
 
 body {
    font-family: 'Fira GO', 'Neucha';

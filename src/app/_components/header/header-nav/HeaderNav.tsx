@@ -21,9 +21,10 @@ function HeaderNav({ category }: ICategorys) {
           width={16}
           height={16}
           variant="headerNavBtn"
-          icon="/chevron-up.png"
+          icon={menuOpen ? "/chevron-up.png" : "/chevron-down.png"}
           title="Меню"
           onClick={() => setMenuOpen((prev) => !prev)}
+          iconPosition="right"
         />
 
         <Link href="/3">Контакты</Link>

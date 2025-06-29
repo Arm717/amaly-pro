@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import Input from "../../input/Input";
 import Text from "../../text/Text";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
-import HeaderSectionRight from "./header-section-right/HeaderSectionRight";
 import { ICategorys } from "@/app/types";
+import HeaderSideBar from "./header-section-right/HeaderSideBar";
 
 function HeaderRightSide({ category }: ICategorys) {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
+  
   return (
-    <div className="flex re items-center gap-10 w-[650px] justify-end max-2xl:w-[250px] max-2xl:gap-5">
+    <div className="flex items-center gap-10 w-[650px] justify-end max-2xl:w-[250px] max-2xl:gap-5">
       {openSearch ? (
         <Input
           placeholder="Найти"
@@ -37,7 +38,7 @@ function HeaderRightSide({ category }: ICategorys) {
         <ButtonIcon onClick={() => setOpenBurger((prev) => !prev)} width={24} height={24} variant="icon" icon="/burger.png" />
       </div>
 
-     {openBurger && <HeaderSectionRight closeAside={() => setOpenBurger((prev) =>! prev)} category={category} />} 
+     {openBurger && <HeaderSideBar closeAside={() => setOpenBurger((prev) =>! prev)} category={category} />} 
 
       <a href="tel:+79856486681" className="max-md:hidden">
         <Text

@@ -41,8 +41,8 @@ function Input({
         <div className="absolute inset-y-0 start-0 flex items-center ps-3">
           <ButtonIcon
             icon={leftIcon}
-            width={20}
-            height={20}
+            width={24}
+            height={24}
             variant="headerNavBtn"
             onClick={onLeftIconClick}
           />
@@ -50,13 +50,14 @@ function Input({
       )}
 
       <input
-        {...rest}
-        className={`
-  w-full text-sm text-gray-900 outline-none bg-transparent
-  ${leftIcon ? "pl-10" : ""}
-  ${rightIcon ? "pr-10" : ""}
-`}
-      />
+  {...rest}
+  className={`
+    w-full text-sm text-black outline-none bg-transparent
+    placeholder-black
+    ${leftIcon ? "pl-10" : ""}
+    ${rightIcon ? "pr-10" : ""}
+  `}
+/>
 
       {/* Правая иконка */}
       {rightIcon && (
