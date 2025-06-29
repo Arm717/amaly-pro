@@ -36,7 +36,7 @@ function Input({
 }: IInput) {
   return (
     <div className={Input_Variant[variant]}>
-      {/* Левая иконка */}
+     
       {leftIcon && (
         <div className="absolute inset-y-0 start-0 flex items-center ps-3">
           <ButtonIcon
@@ -50,16 +50,16 @@ function Input({
       )}
 
       <input
-  {...rest}
-  className={`
+        {...rest}
+        className={`
     w-full text-sm text-black outline-none bg-transparent
     placeholder-black
     ${leftIcon ? "pl-10" : ""}
     ${rightIcon ? "pr-10" : ""}
   `}
-/>
+      />
 
-      {/* Правая иконка */}
+     
       {rightIcon && (
         <div className="absolute inset-y-0 end-0 flex items-center pe-3">
           <ButtonIcon

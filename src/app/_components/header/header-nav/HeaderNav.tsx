@@ -5,17 +5,13 @@ import React, { useState } from "react";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import { ICategorys } from "@/app/types";
 
-
-
 function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="flex relative  items-center justify-center max-md:hidden">
       <nav className="flex font-firaGo font-medium gap-6 ">
-        <Link  href="/1">
-          О нас
-        </Link>
+        <Link href="/1">О нас</Link>
 
         <ButtonIcon
           width={16}

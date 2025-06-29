@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import useScrollPosition from "../../_hooks/useScrollPosition";
+import useScrollPosition from "../../../_hooks/useScrollPosition";
 import Link from "next/link";
 import Image from "next/image";
 
 interface IHeaderLogo {
-  alwaysVisible?: boolean
+  alwaysVisible?: boolean;
 }
 
 function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
@@ -30,6 +30,5 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
     </div>
   );
 }
-
 
 export default HeaderLogo;
