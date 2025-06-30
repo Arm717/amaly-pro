@@ -9,7 +9,7 @@ interface IHeaderLogo {
 }
 
 function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
-  const isScrolled = useScrollPosition(100);
+  const isScrolled = useScrollPosition(50);
   const visible = alwaysVisible || isScrolled;
 
   return (
@@ -19,7 +19,7 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
           className={`transition-all duration-700 ease-in-out origin-top-left ${
             visible
               ? "opacity-100 scale-100 translate-x-0 translate-y-0"
-              : "opacity-0 scale-[2] translate-x-[80px] translate-y-[80px] pointer-events-none"
+              : "opacity-0 scale-[2]  translate-x-[230px] translate-y-[10px] pointer-events-none"
           }`}
           src="/headerLogo.png"
           width={127}
