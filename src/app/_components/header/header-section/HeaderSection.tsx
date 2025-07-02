@@ -27,24 +27,10 @@ function HeaderSection() {
       <div className="relative w-full">
         {/* Логотип */}
         <Link href="/">
-          <Image
-            src="/logo.png"
-            width={244}
-            height={438}
-            className={`absolute left-[291px] top-[60px] w-[244px] z-30 origin-top-left transition-all duration-700 ease-in-out
-              max-xl:left-[100px] max-xl:w-[180px]
-              max-md:left-[60px] max-md:top-[40px] max-md:w-[130px]
-              max-sm:left-[20px] max-sm:top-[30px] max-sm:w-[100px]
-              ${
-                isScrolled
-                  ? "opacity-0 scale-[0.5] -translate-x-[100px] -translate-y-[10px] pointer-events-none"
-                  : "opacity-100 scale-100 translate-x-0 translate-y-0"
-              }`}
-            alt=""
-          />
+         
 
           <Image
-            className={`absolute top-[51px] left-[270px] w-[350px] z-20 filter brightness-0 invert transition-all duration-700 ease-in-out
+            className={`absolute top-[51px] left-[270px] w-[350px] z-10 filter brightness-0 invert transition-all duration-700 ease-in-out
               max-xl:left-[80px] max-xl:top-[70px] max-xl:w-[280px]
               max-md:left-[50px] max-md:top-[90px] max-md:w-[200px]
               max-sm:left-[20px] max-sm:top-[80px] max-sm:w-[130px]

@@ -4,12 +4,20 @@ import React, { useState } from "react";
 
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import { ICategorys } from "@/app/types";
+import useScrollPosition from "@/app/_hooks/useScrollPosition";
 
 function HeaderNav({ category }: ICategorys) {
   const [menuOpen, setMenuOpen] = useState(false);
+   const isScrolled = useScrollPosition(50);
 
   return (
-    <div className="flex relative  items-center justify-center max-md:hidden">
+    <div className={`flex relative  items-center justify-center transition-all duration-700 ease-in-out
+    ${
+            isScrolled
+              ? "ml-0"
+              : "xl:ml-[200px]"
+          }
+    max-md:hidden`}>
       <nav className="flex font-firaGo font-medium gap-6 ">
         <Link href="/1">О нас</Link>
 

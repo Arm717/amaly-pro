@@ -9,8 +9,8 @@ async function Header() {
   const category = await allCategory();
 
   return (
-    <header className="flex w-full fixed z-20 h-[71px] px-[64px] justify-center bg-yellow-400 max-md:px-[20px] max-2xl:px-[20px]">
-      <div className="relative flex h-full w-[2500px] justify-between">
+    <header className="sticky top-0 flex w-full  z-20 h-[71px] px-[64px] justify-center bg-yellow-400 max-md:px-[20px] max-2xl:px-[20px]">
+      <div className="relative flex  h-full w-[2500px] justify-between">
         <HeaderLogo />
 
         <div className="flex w-[127px] max-sm:w-[50px]"></div>
