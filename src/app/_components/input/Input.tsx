@@ -18,9 +18,9 @@ type Variant = "headerInput" | "section" | "headerAside";
 
 const Input_Variant: Record<Variant, string> = {
   headerInput:
-    "flex relative items-center w-[350px] h-[39px] border border-black-400 rounded-lg bg-yellow-400",
+    "flex relative items-center w-[350px] h-[39px] border border-black rounded-lg bg-yellow-400 ",
   headerAside:
-    "flex relative items-center w-[170px] h-[39px] border border-black-400 rounded-[4px] bg-yellow-400",
+    "flex relative items-center w-[170px] h-[39px] border border-black rounded-[4px] bg-yellow-400",
   section: "w-full border border-gray-300 rounded-md px-3 py-2",
 };
 

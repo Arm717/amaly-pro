@@ -16,7 +16,7 @@ function HeaderSideBar({ category, closeAside }: IHeaderAside) {
   return (
     <div className="fixed top-0 right-0 w-[260px] h-screen bg-yellow-400 z-50 shadow-xl font-firaGo  flex flex-col justify-between">
       <div>
-        <div className="flex justify-end mt-[20px] mr-[20px] mb-[19px]">
+        <div className="flex justify-end mt-[20px] mr-[20px] mb-[19px] ">
           <ButtonIcon
             onClick={closeAside}
             icon="/x.png"
@@ -36,7 +36,7 @@ function HeaderSideBar({ category, closeAside }: IHeaderAside) {
           />
         </div>
 
-        <nav className="flex flex-col  font-medium text-black gap-[32px] ml-[20px]">
+        <nav className="flex relative flex-col  font-medium text-black gap-[32px] ml-[20px]">
           <div>
             <Link href="/about">О нас</Link>
           </div>
@@ -53,7 +53,7 @@ function HeaderSideBar({ category, closeAside }: IHeaderAside) {
             />
 
             {menuOpen && (
-              <ul className="mt-[10px] ml-[12px] text-sm font-normal space-y-[8px] text-[#594700]">
+              <ul className="mt-[10px] ml-[12px] max-h-[301px] overflow-y-auto text-sm font-normal space-y-[8px] text-[#594700]">
                 {category.map((item) => (
                   <li key={item.id}>
                     <Link href="/">{item.name}</Link>

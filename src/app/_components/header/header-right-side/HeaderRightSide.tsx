@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../input/Input";
 import Text from "../../text/Text";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
@@ -9,10 +9,30 @@ import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 function HeaderRightSide({ category }: ICategorys) {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+
+    handleResize();
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
 
   return (
-    <div className="flex items-center gap-10 w-[650px] justify-end max-2xl:w-[250px] max-2xl:gap-5">
-      {openSearch ? (
+    <div
+      className="flex items-center gap-10 justify-end 
+  w-[650px] 
+  max-2xl:w-[550px] 
+  max-lg:w-[300px] 
+  max-sm:w-[250px] 
+  max-2xl:gap-5 
+  max-sm:gap-3
+    "
+    >
+      {openSearch && !isMobile ? (
         <Input
           placeholder="Найти"
           variant="headerInput"
@@ -20,7 +40,7 @@ function HeaderRightSide({ category }: ICategorys) {
           rightIcon="/x.png"
           altLeftIcon="Поиск"
           altRightIcon="Очистка"
-          onRightIconClick={() => setOpenSearch((prev) => !prev)}
+          onRightIconClick={() => setOpenSearch(false)}
         />
       ) : (
         <ButtonIcon
@@ -28,13 +48,13 @@ function HeaderRightSide({ category }: ICategorys) {
           height={24}
           variant="icon"
           icon="/searchLogo.png"
-          onClick={() => setOpenSearch((prev) => !prev)}
+          onClick={() => (isMobile ? setOpenBurger(true) : setOpenSearch(true))}
         />
       )}
 
       <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
 
-      <div className="md:hidden">
+      <div className="lg:hidden max-sm:pr-2">
         <ButtonIcon
           onClick={() => setOpenBurger((prev) => !prev)}
           width={24}
@@ -51,7 +71,7 @@ function HeaderRightSide({ category }: ICategorys) {
         />
       )}
 
-      <a href="tel:+79856486681" className="max-md:hidden">
+      <a href="tel:+79856486681" className="max-lg:hidden">
         <Text
           className="text-white text-2xl font-firaGo font-semibold max-2xl:font-medium max-2xl:text-lg"
           as="span"

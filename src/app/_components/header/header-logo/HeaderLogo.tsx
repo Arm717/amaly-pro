@@ -13,14 +13,14 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
   const visible = alwaysVisible || isScrolled;
 
   return (
-    <div className="absolute top-[-20px] left-[0]">
+    <div className="absolute z-30 top-[-17px] left-[0] max-sm:top-[-5px] max-sm:pl-[20px] max-lg: w-[110px] max-lg:h-[190px]">
       <Link href="/">
         <Image
           className={`transition-all duration-700 ease-in-out origin-top-left ${
             visible
               ? "opacity-100 scale-100 translate-x-0 translate-y-0"
               : "opacity-0 scale-[2]  translate-x-[230px] translate-y-[10px] pointer-events-none"
-          }`}
+          } max-sm:w-[56px] max-sm:h-[95px] max-sm:opacity-100 scale-100 translate-x-0 translate-y-0`}
           src="/headerLogo.png"
           width={127}
           height={213}
