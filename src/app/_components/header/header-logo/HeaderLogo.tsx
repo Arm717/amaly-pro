@@ -19,7 +19,7 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
           className={`w-[127px] h-[213px] transition-all duration-700 ease-in-out origin-top-left ${
             visible
               ? "opacity-100 scale-100 bg-white translate-x-0 translate-y-0"
-              : "xl:opacity-100 xl:scale-[2]  xl:translate-x-[230px] xl:translate-y-[30px]  xl:pointer-events-none max-xl:bg-white"
+              : "2xl:opacity-100 2xl:scale-[2]  2xl:translate-x-[230px] 2xl:translate-y-[30px]  2xl:pointer-events-none max-2xl:bg-white"
           } max-xl:w-[100px] max-xl:h-[180px] max-sm:w-[56px] max-sm:h-[95px] max-sm:opacity-100 scale-100 translate-x-0 translate-y-0`}
           src="/logo.png"
           width={127}

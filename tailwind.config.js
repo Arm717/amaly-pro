@@ -38,6 +38,8 @@ module.exports = {
       "max-xl": {raw: "(max-width: 1280px)"},
       "2xl": "1536px",
       "max-2xl": {raw: "(max-width: 1536px)"},
+      "2xxl": "1880px",
+      "max-2xxl": {raw: "(max-width: 1880px)"},
       "3xl": "1920px",
       "max-3xl": { raw: "(max-width: 1919px)" }, 
     },
