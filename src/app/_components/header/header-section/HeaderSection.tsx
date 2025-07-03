@@ -66,6 +66,7 @@ function HeaderSection() {
       </div>
 
       <div className="">
+        
         <Image
           className="w-[440px] h-[634px] border border-red max-2xl:w-[360px] max-xl:h-[500px] max-sm:w-[110px] max-sm:h-[232px]"
           src="/rightMaskImage.png"
