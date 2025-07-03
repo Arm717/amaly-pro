@@ -23,13 +23,7 @@ function HeaderRightSide({ category }: ICategorys) {
 
   return (
     <div
-      className="flex items-center gap-10 justify-end 
-  w-[650px] 
-  max-2xl:w-[550px] 
-  max-lg:w-[300px] 
-  max-sm:w-[250px] 
-  max-2xl:gap-5 
-  max-sm:gap-3
+      className="flex items-center gap-10 justify-end w-[650px]  max-2xl:w-[300px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
     "
     >
       {openSearch && !isMobile ? (
