@@ -14,7 +14,7 @@ function HeaderRightSide({ category }: ICategorys) {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1024px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
-
+    
     handleResize();
     mediaQuery.addEventListener("change", handleResize);
 

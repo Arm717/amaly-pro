@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function useScrollPosition(offset: number = 100) {
+export default function useScrollPosition(offset: number = 50) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
