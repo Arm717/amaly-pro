@@ -21,23 +21,37 @@ function TitleImage({ as, value, src, width, height, alt, repeat }: ITitleImageP
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       {/* Картинка по центру */}
-      <Image
+      
+
+      {repeat ? (
+       <>
+        <Image
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 filter grayscale"
+          src={src}
+          width={width}
+          height={height}
+          alt={alt || ''}
+        />
+
+        <Image
         className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 filter grayscale"
         src={src}
         width={width}
         height={height}
         alt={alt || ''}
       />
-
-      {repeat && (
-        <Image
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          src={src}
-          width={width}
-          height={height}
-          alt={alt || ''}
-        />
-      )}
+       </>
+         
+       
+        
+        
+      ):(<Image
+        className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 filter grayscale"
+        src={src}
+        width={width}
+        height={height}
+        alt={alt || ''}
+      />)}
 
       {/* Текст точно по центру */}
       <div className="absolute inset-0 flex justify-center items-center text-center">

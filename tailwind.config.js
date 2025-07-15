@@ -26,6 +26,8 @@ module.exports = {
       },
     },
     screens: {
+      xsm: '375px',
+      "max-xsm": {raw: "(max-width: 375px)"},
       sm: "640px",
       "max-sm": {raw: "(max-width: 640px)"},
       md: "768px",

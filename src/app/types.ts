@@ -23,7 +23,7 @@ export interface ICategory {
     products: IPriducts[];
 }
 
-interface IAbout {
+export interface IAbout {
     id:number;
     image:string;
     text:string;

@@ -27,7 +27,7 @@ function ButtonIcon({
       variant="headerNavBtn"
       className={`flex items-center gap-2 ${
         iconPosition === "right" ? "" : "flex-row-reverse"
-      }`}
+      } `}
     >
       {title && <Text as="span" value={title} />}
       <Image

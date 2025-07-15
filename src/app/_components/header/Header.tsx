@@ -17,7 +17,7 @@ async function Header({ sectionVisible }: IHeader) {
   return (
     <>
       <header className="sticky top-0 z-50">
-        <div className="flex w-full h-[71px] px-[64px] justify-center bg-yellow-400 max-2xl:px-[20px] max-md:px-[20px]">
+        <div className="flex w-full h-[71px] px-[64px] justify-center bg-[var(--yellow)] max-2xl:px-[20px] max-md:px-[20px] ">
           <div className="relative flex h-full w-[2500px] justify-between">
             <HeaderLogo />
             <div className="flex w-[127px] max-sm:w-[50px]"></div>
