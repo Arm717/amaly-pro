@@ -5,6 +5,7 @@ import Text from "../../text/Text";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import { ICategorys } from "@/app/types";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
+import LinkImage from "../../link-image/LinkImage";
 
 function HeaderRightSide({ category }: ICategorys) {
   const [openSearch, setOpenSearch] = useState(false);
@@ -23,7 +24,7 @@ function HeaderRightSide({ category }: ICategorys) {
 
   return (
     <div
-      className="flex items-center gap-10 justify-end w-[650px]  max-2xl:w-[300px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
+      className="flex items-center gap-10 justify-end w-[690px]  max-2xl:w-[300px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
     "
     >
       {openSearch && !isMobile ? (
@@ -47,6 +48,8 @@ function HeaderRightSide({ category }: ICategorys) {
       )}
 
       <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
+
+      <LinkImage width={24} height={24} url="/basket" variant="basket" title="0" icon="/basket.png" />
 
       <div className="lg:hidden max-sm:pr-2">
         <ButtonIcon

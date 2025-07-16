@@ -6,7 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../text/Text";
 
-const Link_Variant = {};
+type variant = "basket"
+
+const Link_Variant = {
+  basket: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold pointer-events-none" 
+};
 
 interface LinkImageProps {
   icon: StaticImageData | string;
@@ -14,6 +18,7 @@ interface LinkImageProps {
   width: number;
   height: number;
   imageRepeat?: boolean;
+  variant: variant;
   url: string;
 }
 
@@ -23,15 +28,17 @@ function LinkImage({
   width,
   height,
   url,
+  variant,
   imageRepeat,
 }: LinkImageProps) {
   return (
-    <Link href={url} className={``}>
+    <Link href={url} className={`flex relative `}>
       <Image
         src={icon}
         alt=""
         width={width}
         height={height}
+        className={``}
         unoptimized={typeof icon === "string"}
       />
       {imageRepeat && (
@@ -43,7 +50,7 @@ function LinkImage({
           unoptimized={typeof icon === "string"}
         />
       )}
-      {title && <Text as="span" value={title} />}
+      {title && <Text as="span" value={title} className={`${Link_Variant[variant]}`} />}
     </Link>
   );
 }

@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
 import React from "react";
 import TitleImage from "../title-image/TitleImage";
 import { IAbout } from "@/app/types";
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 
 interface IAboutUsSection {
-    description: IAbout;
+  description: IAbout;
 }
 
 function AboutUsSection({ description }: IAboutUsSection) {
   const cleanHtml = DOMPurify.sanitize(description.text);
 
   return (
-  <div className="mb-[100px]">
+    <div className="mb-[100px]">
       <div className="flex justify-center pb-[27px]">
         <TitleImage
           as="h2"
@@ -23,7 +23,7 @@ function AboutUsSection({ description }: IAboutUsSection) {
           height={97}
         />
       </div>
-      <div className="flex flex-col lg:flex-row w-full">
+      <div className="flex flex-col items-center lg:flex-row w-full">
         {/* Видео */}
         <div className="w-full lg:w-1/2 max-w-[680px] h-[300px] lg:h-[510px] bg-black">
           <iframe

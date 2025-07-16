@@ -17,7 +17,7 @@ function HeaderSection() {
       <div className="">
         <Image
           className="
-                border  border-black  
+                  
                 w-[200px] h-[332px]
                 xsm:w-[220px] xsm:h-[300px]
                 sm:w-[300px] sm:h-[400px]
@@ -57,10 +57,10 @@ function HeaderSection() {
       </div>
 
       <div
-  className="flex flex-col-reverse w-[345px] h-[500px] gap-[21px] justify-center m-auto border border-gray-700
+  className="flex flex-col-reverse w-[345px] h-[500px] gap-[21px] justify-center m-auto 
             xsm:[w-178px] xsm:h-[300px] 2xl:flex-row 2xl:w-[1090px] 2xl:h-[600px] 2xl:max-w-[1090px]"
 >
-  <div className="self-end border border-white shake-horizontal w-[200px] h-[200px] xsm:w-[150px] xsm:h-[150px]  lg:w-[300px] lg:h-auto xl:w-[512px] xl:h-[526px]">
+  <div className="self-end  shake-horizontal w-[200px] h-[200px] xsm:w-[150px] xsm:h-[150px]  lg:w-[300px] lg:h-auto xl:w-[512px] xl:h-[526px]">
     <Image
       className="w-full h-full object-contain"
       src="/maskSalad.png"
@@ -99,7 +99,6 @@ function HeaderSection() {
             lg:w-[400px] lg:h-[500px]
             xl:w-[400px] xl:h-[600px]   
             2xl:w-[440px] 2xl:h-[634px]
-            border border-red
                      "
           src="/rightMaskImage.png"
           width={440}

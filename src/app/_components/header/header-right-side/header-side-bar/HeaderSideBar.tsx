@@ -1,7 +1,6 @@
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Input from "@/app/_components/input/Input";
-import { IAllCategory, ICategorys } from "@/app/types";
-import Image from "next/image";
+import { IAllCategory } from "@/app/types";
 import Link from "next/link";
 import React, { useState } from "react";
 

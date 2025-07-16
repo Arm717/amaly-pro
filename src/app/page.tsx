@@ -1,23 +1,22 @@
-import AboutUsSection from "./_components/about-us-section/AboutUsSection";
-import ProductsSection from "./_components/products-section/ProductsSection";
-import Section from "./_components/section/Section";
-import TitleImage from "./_components/title-image/TitleImage";
 import { getHomeData } from "./services/getHomeData";
+import AboutUsSection from "./_components/about-us-section/AboutUsSection";
+import Section from "./_components/section/Section";
 
-async function Home() {
- 
-  const homeData = await getHomeData();
-  console.log(homeData);
+import ProductsSection from "./_components/products-section/ProductsSection";
+import { ProductProvider } from "./context/useContext";
+
+export default async function Home() {
   
+  const homeData = await getHomeData();
+
   return (
     <div className="flex w-full justify-center">
-      <Section>
-        <AboutUsSection description={homeData.about} />
-        <ProductsSection />
-      </Section>
+      <ProductProvider initialCategorie={homeData.category}>
+        <Section>
+          <AboutUsSection description={homeData.about} />
+          <ProductsSection  />
+        </Section>
+      </ProductProvider>
     </div>
   );
 }
-
-export default Home;
-

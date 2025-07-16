@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import React from 'react';
-import Title from '../title/Title';
+import Image from "next/image";
+import React from "react";
+import Title from "../title/Title";
 
-type ITitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type ITitle = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface ITitleImageProps {
   as: ITitle;
@@ -10,51 +10,53 @@ interface ITitleImageProps {
   src: string;
   width: number;
   height: number;
+  imageWidth?: number;
+  imageHeight?: number;
   alt?: string;
   repeat?: boolean;
 }
 
-function TitleImage({ as, value, src, width, height, alt, repeat }: ITitleImageProps) {
+function TitleImage({
+  as,
+  value,
+  src,
+  width,
+  height,
+  imageWidth,
+  imageHeight,
+  alt,
+  repeat,
+}: ITitleImageProps) {
+  const imgW = imageWidth ?? width;
+  const imgH = imageHeight ?? height;
+
   return (
     <div
-      className="relative flex justify-center items-center font-firaGo"
+      className="relative flex items-center justify-center font-firaGo"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
-      {/* Картинка по центру */}
-      
-
-      {repeat ? (
-       <>
+      {/* Слой с картинками */}
+      <div className={`flex ${repeat ? "gap-2" : ""}`}>
         <Image
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 filter grayscale"
+          className="filter grayscale"
           src={src}
-          width={width}
-          height={height}
-          alt={alt || ''}
+          width={imgW / (repeat ? 2 : 1)}
+          height={imgH}
+          alt={alt || ""}
         />
+        {repeat && (
+          <Image
+            className="filter grayscale"
+            src={src}
+            width={imgW / 2}
+            height={imgH}
+            alt={alt || ""}
+          />
+        )}
+      </div>
 
-        <Image
-        className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 filter grayscale"
-        src={src}
-        width={width}
-        height={height}
-        alt={alt || ''}
-      />
-       </>
-         
-       
-        
-        
-      ):(<Image
-        className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 filter grayscale"
-        src={src}
-        width={width}
-        height={height}
-        alt={alt || ''}
-      />)}
-
-      {/* Текст точно по центру */}
-      <div className="absolute inset-0 flex justify-center items-center text-center">
+      {/* Текст по центру */}
+      <div className="absolute inset-0 flex justify-center items-center text-center pointer-events-none">
         <Title as={as} value={value} />
       </div>
     </div>
