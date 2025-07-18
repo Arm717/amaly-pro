@@ -6,10 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../text/Text";
 
-type variant = "basket"
+type variant = "basket" | "img"
 
 const Link_Variant = {
-  basket: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold pointer-events-none" 
+  basket: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold pointer-events-none",
+  img: "",
 };
 
 interface LinkImageProps {

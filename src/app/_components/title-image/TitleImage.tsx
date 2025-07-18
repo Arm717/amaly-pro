@@ -14,6 +14,7 @@ interface ITitleImageProps {
   imageHeight?: number;
   alt?: string;
   repeat?: boolean;
+  reverse?: boolean;
 }
 
 function TitleImage({
@@ -26,6 +27,7 @@ function TitleImage({
   imageHeight,
   alt,
   repeat,
+  reverse
 }: ITitleImageProps) {
   const imgW = imageWidth ?? width;
   const imgH = imageHeight ?? height;
@@ -46,7 +48,7 @@ function TitleImage({
         />
         {repeat && (
           <Image
-            className="filter grayscale"
+            className={`filter grayscale ${reverse? 'scale-x-[-1]':''}`}
             src={src}
             width={imgW / 2}
             height={imgH}

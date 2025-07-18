@@ -20,7 +20,7 @@ export interface ICategory {
     status:number
     created_at: string;
     updated_at: string;
-    products: IPriducts[];
+    products: IProductsItem[];
 }
 
 export interface IAbout {
@@ -29,12 +29,9 @@ export interface IAbout {
     text:string;
 }
 
-type IPriducts = IProductsItem[]
-
-interface IProductsItem {
-    
+export interface IProductsItem {
     id: number;
-    category_id: 2;
+    category_id: number;
     name: string;
     image: string;
     text: string;
@@ -47,5 +44,5 @@ interface IProductsItem {
     status: number;
     created_at: string;
     updated_at: string;
-  
 }
+
