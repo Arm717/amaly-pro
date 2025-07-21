@@ -9,11 +9,8 @@ import AboutUsSection from "./(routes)/(home)/_components/about-us/AboutUsSectio
 export default async function Home() {
   
   const homeData = await getHomeData();
-  // console.log(homeData);
-  
-
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
       <ProductProvider initialCategorie={homeData.category}>
         <Section>
           <AboutUsSection description={homeData.about} />

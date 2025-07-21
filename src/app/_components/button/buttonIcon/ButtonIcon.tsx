@@ -5,12 +5,15 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import Text from "../../text/Text";
 
+type TextSize = "sm" | "base" | "md" | "lg" | "xlg";
+
 interface ButtonIconProps extends IButton {
   icon: StaticImageData | string;
   title?: string;
   width: number;
   height: number;
   iconPosition?: "left" | "right";
+  textSize?: TextSize;
 }
 
 function ButtonIcon({
@@ -19,6 +22,7 @@ function ButtonIcon({
   width,
   height,
   iconPosition = "left",
+  textSize,
   onClick,
 }: ButtonIconProps) {
   return (
@@ -29,7 +33,7 @@ function ButtonIcon({
         iconPosition === "right" ? "" : "flex-row-reverse"
       } `}
     >
-      {title && <Text as="span" value={title} />}
+      {title && <Text as="span" fontSize={textSize} value={title} />}
       <Image
         src={icon}
         alt=""

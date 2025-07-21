@@ -20,7 +20,7 @@ function HeaderNav({ category }: ICategorys) {
     max-md:hidden`
     }>
       <nav className="flex font-firaGo font-medium gap-6">
-        <Link href="/1">О нас</Link>
+        <Link href="/#aboutUs">О нас</Link>
 
         <ButtonIcon
           width={16}

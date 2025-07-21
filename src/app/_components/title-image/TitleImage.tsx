@@ -58,7 +58,7 @@ function TitleImage({
       </div>
 
       {/* Текст по центру */}
-      <div className="absolute inset-0 flex justify-center items-center text-center pointer-events-none">
+      <div className="absolute inset-0 flex justify-center items-center text-center ">
         <Title as={as} value={value} />
       </div>
     </div>

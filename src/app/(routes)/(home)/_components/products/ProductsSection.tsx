@@ -10,7 +10,7 @@ interface IProductsSection {
 function ProductsSection({ category }: IProductsSection) {
   return (
     <>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center bg-white">
         <div className="flex justify-center mb-[40px]">
           <TitleImage
             as="h1"

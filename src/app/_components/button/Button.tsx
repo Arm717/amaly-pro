@@ -2,12 +2,14 @@
 import { ButtonHTMLAttributes } from "react";
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: "icon" | "headerNavBtn";
+  variant: "custom" | "icon" | "headerNavBtn" | "card";
 }
 
 const BUTTON_VARIANT = {
+  custom: "",
   icon: "",
   headerNavBtn: "flex text-black gap-2 items-center",
+  card: "flex text-black gap-2 items-center z-20",
 } as const;
 
 export default function Button({

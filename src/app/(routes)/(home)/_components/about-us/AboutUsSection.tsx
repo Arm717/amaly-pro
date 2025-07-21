@@ -24,7 +24,7 @@ function AboutUsSection({ description }: IAboutUsSection) {
           height={97}
         />
       </div>
-      <div className="flex flex-col items-center lg:flex-row w-full">
+      <div id="aboutUs" className="flex flex-col items-center lg:flex-row w-full">
         {/* Видео */}
         <div className="w-full lg:w-1/2 max-w-[680px] h-[300px] lg:h-[510px] bg-black">
           <iframe
@@ -39,7 +39,7 @@ function AboutUsSection({ description }: IAboutUsSection) {
         {/* Контент с HTML */}
         <div className="w-full lg:w-1/2 max-w-[680px] h-auto lg:h-[510px] px-4 flex justify-center overflow-y-auto">
           <div
-            className="relative prose prose-invert  font-firaGo font-semibold text-md"
+            className="relative  prose prose-invert  font-firaGo font-semibold text-md"
             dangerouslySetInnerHTML={{ __html: cleanHtml }}
           />
         </div>

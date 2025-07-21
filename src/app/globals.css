@@ -94,8 +94,9 @@
 
 
 body {
+  
    font-family: 'Fira GO', 'Neucha';
     max-width: 100vw;
+    min-height: 100vh;
     
-    min-height: 100dvh;
 }

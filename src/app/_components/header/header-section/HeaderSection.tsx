@@ -9,7 +9,7 @@ function HeaderSection() {
 
   return (
     <section
-      className="flex box-border relative  justify-between  h-[731px]  bg-[url(/headerBackgrownd.png)]  bg-[length:100%_100%] bg-center bg-no-repeat
+      className="flex box-border relative justify-between  h-[731px]  bg-[url(/headerBackgrownd.png)]  bg-[length:100%_100%] bg-center bg-no-repeat
                   max-lg:h-[500px]
                   max-sm:!h-[338px]
                  "
@@ -57,22 +57,22 @@ function HeaderSection() {
       </div>
 
       <div
-  className="flex flex-col-reverse w-[345px] h-[500px] gap-[21px] justify-center m-auto 
+        className="flex flex-col-reverse w-[345px] h-[500px] gap-[21px] justify-center m-auto 
             xsm:[w-178px] xsm:h-[300px] 2xl:flex-row 2xl:w-[1090px] 2xl:h-[600px] 2xl:max-w-[1090px]"
->
-  <div className="self-end  shake-horizontal w-[200px] h-[200px] xsm:w-[150px] xsm:h-[150px]  lg:w-[300px] lg:h-auto xl:w-[512px] xl:h-[526px]">
-    <Image
-      className="w-full h-full object-contain"
-      src="/maskSalad.png"
-      width={512}
-      height={526}
-      alt=""
-    />
-  </div>
+      >
+        <div className="self-end  shake-horizontal w-[200px] h-[200px] xsm:w-[150px] xsm:h-[150px]  lg:w-[300px] lg:h-auto xl:w-[512px] xl:h-[526px]">
+          <Image
+            className="w-full h-full object-contain"
+            src="/maskSalad.png"
+            width={512}
+            height={526}
+            alt=""
+          />
+        </div>
 
-  <div className="w-full 2xl:max-w-[552px]">
-    <Title
-      className="
+        <div className="w-full 2xl:max-w-[552px]">
+          <Title
+            className="
         text-base 
         sm:text-xl 
         lg:text-4xl 
@@ -83,12 +83,11 @@ function HeaderSection() {
         font-normal 
         font-neucha
       "
-      as="h2"
-      value="Даже ангелы иногда совершают преступления ;)"
-    />
-  </div>
-</div>
-
+            as="h2"
+            value="Даже ангелы иногда совершают преступления ;)"
+          />
+        </div>
+      </div>
 
       <div className="">
         <Image

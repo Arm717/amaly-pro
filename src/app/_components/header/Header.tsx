@@ -11,12 +11,11 @@ interface IHeader {
 }
 
 async function Header({ sectionVisible }: IHeader) {
+  
   const category = await allCategory();
-  
-  
   return (
     <>
-      <header className="sticky top-0 z-50">
+      <header className="sticky top-0 z-[999]">
         <div className="flex w-full h-[71px] px-[64px] justify-center bg-[var(--yellow)] max-2xl:px-[20px] max-md:px-[20px] ">
           <div className="relative flex h-full w-[2500px] justify-between">
             <HeaderLogo />
