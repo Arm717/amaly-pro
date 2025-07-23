@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import Title from "../title/Title";
+import clsx from "clsx";
+
 
 type ITitle = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -15,9 +17,12 @@ interface ITitleImageProps {
   alt?: string;
   repeat?: boolean;
   reverse?: boolean;
+  className?: string;         // Контейнер (внешний <div>)
+  imageClassName?: string;    // Каждое изображение
+  titleClassName?: string;    // Текст (absolute центр)
 }
 
-function TitleImage({
+const TitleImage = ({
   as,
   value,
   src,
@@ -25,44 +30,59 @@ function TitleImage({
   height,
   imageWidth,
   imageHeight,
-  alt,
-  repeat,
-  reverse
-}: ITitleImageProps) {
+  alt = "",
+  repeat = false,
+  reverse = false,
+  className = "",
+  imageClassName = "",
+  titleClassName = "",
+}: ITitleImageProps) => {
   const imgW = imageWidth ?? width;
   const imgH = imageHeight ?? height;
 
   return (
     <div
-      className="relative flex items-center justify-center font-firaGo"
-      style={{ width: `${width}px`, height: `${height}px` }}
+      className={clsx(
+        "relative flex items-center justify-center font-firaGo",
+        className
+      )}
+      
     >
       {/* Слой с картинками */}
-      <div className={`flex ${repeat ? "gap-2" : ""}`}>
+      <div className={clsx("flex", repeat && "gap-2")}>
         <Image
-          className="filter grayscale"
+          className={clsx("filter grayscale", imageClassName)}
           src={src}
           width={imgW / (repeat ? 2 : 1)}
           height={imgH}
-          alt={alt || ""}
+          alt={alt}
         />
         {repeat && (
           <Image
-            className={`filter grayscale ${reverse? 'scale-x-[-1]':''}`}
+            className={clsx(
+              "filter grayscale",
+              imageClassName,
+              reverse && "scale-x-[-1]"
+            )}
             src={src}
             width={imgW / 2}
             height={imgH}
-            alt={alt || ""}
+            alt={alt}
           />
         )}
       </div>
 
       {/* Текст по центру */}
-      <div className="absolute inset-0 flex justify-center items-center text-center ">
-        <Title as={as} value={value} />
+      <div
+        className={clsx(
+          "absolute inset-0 flex justify-center items-center text-center",
+          titleClassName
+        )}
+      >
+        <Title className={titleClassName} as={as} value={value} />
       </div>
     </div>
   );
-}
+};
 
 export default TitleImage;

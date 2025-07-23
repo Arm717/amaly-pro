@@ -94,8 +94,10 @@
 
 
 body {
+  display: flex;
+  flex-direction: column;
   
-   font-family: 'Fira GO', 'Neucha';
+    font-family: 'Fira GO', 'Neucha';
     max-width: 100vw;
     min-height: 100vh;
     

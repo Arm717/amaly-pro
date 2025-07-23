@@ -6,7 +6,7 @@ interface ISection {
 
 function Section({children}:ISection) {
   return (
-    <section className= 'flex flex-col w-[1380px] h-[100vh]'>{children}</section>
+    <section className= 'flex flex-col w-[1380px] '>{children}</section>
   )
 }
 

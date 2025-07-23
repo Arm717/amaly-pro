@@ -17,13 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col">
         <Header sectionVisible/>
-        
           <main className="flex-1">
               {children}
           </main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

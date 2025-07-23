@@ -18,7 +18,15 @@ function ProductCard({ product }: IProductCard) {
 
   return (
     <>
-    <Link href={`/product?id=${product.id}`} className="flex flex-col z-10 w-[330px] h-[421px] border-2 rounded-[20px] border-[var(--yellow)]">
+    <Link href={`/product?id=${product.id}`} className="flex flex-col z-10  border-2 rounded-[20px] border-[var(--yellow)]
+    w-[215px] h-[329px]
+    xsm:w-[215px]
+    xsm:h-[400px]
+    lg:w-[260px]
+    lg:h-[390px]
+    xl:w-[330px]
+    xl:h-[421px]
+    ">
      
         <div className="p-[10px] h-full">
           <div className="mb-[12px] overflow-hidden rounded-[12px] group">
@@ -33,19 +41,26 @@ function ProductCard({ product }: IProductCard) {
 
           <Title
             as="h5"
-            className="font-semibold mb-[6px]"
+            className="font-semibold mb-[6px] xsm:text-[15px] lg:text-sm"
             value={product.name}
           />
-          <div className="flex gap-[18px] text-[var(--grey)] mb-[6px]">
+          <div className="flex xsm:flex-wrap lg:flex-row gap-[18px] xsm:gap-[10px] text-[var(--grey)] mb-[6px]">
             <Text
               fontSize="sm"
               as="span"
+              className=" lg:text-[10px] xl:text-sm"
               value={`Белки: ${product.protein} гр.`}
             />
-            <Text fontSize="sm" as="span" value={`Жиры: ${product.fat} гр.`} />
+            <Text 
+            fontSize="sm"
+            className="lg:text-[10px] xl:text-sm"
+            as="span"
+            value={`Жиры: ${product.fat} гр.`} 
+            />
             <Text
               fontSize="sm"
               as="span"
+              className="lg:text-[10px] xl:text-sm"
               value={`Углеводы: ${product.carbohydrates} гр.`}
             />
           </div>

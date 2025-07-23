@@ -24,7 +24,7 @@ function AboutUsSection({ description }: IAboutUsSection) {
           height={97}
         />
       </div>
-      <div id="aboutUs" className="flex flex-col items-center lg:flex-row w-full">
+      <div id="aboutUs" className="flex flex-col items-center lg:flex-row w-full px-[20px]">
         {/* Видео */}
         <div className="w-full lg:w-1/2 max-w-[680px] h-[300px] lg:h-[510px] bg-black">
           <iframe
