@@ -13,7 +13,7 @@ function ProductList({ productData }: IProductList) {
     .slice(0, 3);
 
   return (
-    <div className="flex h-[450px] border border-black mb-5 bg-white justify-between  xsm:mx-4 2xxl:mx-0">
+    <div className="flex h-[450px]  mb-5 bg-white justify-between  xsm:mx-4 2xxl:mx-0">
       {/* Левый блок — не скроллится */}
       <div className=" flex items-center  bg-white shrink-0">
         <ProductCategory productCategory={productData} />
@@ -28,9 +28,7 @@ function ProductList({ productData }: IProductList) {
           "
         >
           {filteredProducts.map((item) => (
-            <div
-              key={item.id}
-            >
+            <div key={item.id}>
               <ProductCard product={item} />
             </div>
           ))}

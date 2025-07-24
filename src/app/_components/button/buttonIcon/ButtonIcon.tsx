@@ -23,6 +23,7 @@ function ButtonIcon({
   height,
   iconPosition = "left",
   textSize,
+  className,
   onClick,
 }: ButtonIconProps) {
   return (
@@ -31,9 +32,9 @@ function ButtonIcon({
       variant="headerNavBtn"
       className={`flex items-center gap-2 ${
         iconPosition === "right" ? "" : "flex-row-reverse"
-      } `}
+      } ${className}`}
     >
-      {title && <Text as="span" fontSize={textSize} value={title} />}
+      {title && <Text as="span"  fontSize={textSize} value={title} />}
       <Image
         src={icon}
         alt=""

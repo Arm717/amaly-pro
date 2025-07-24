@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import Title from "../title/Title";
+
 import clsx from "clsx";
+import Title from "../Title";
 
 
 type ITitle = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

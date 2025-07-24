@@ -6,11 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../text/Text";
 
-type variant = "basket" | "img"
+type variant = "basket" | "img" | "withText"
 
 const Link_Variant = {
   basket: "absolute top-1/2 left-1/2 -translate-x-1/3 -translate-y-1/2 text-white text-xs font-bold pointer-events-none",
   img: "",
+  withText:"ml-2"
 };
 
 interface LinkImageProps {
@@ -21,6 +22,8 @@ interface LinkImageProps {
   imageRepeat?: boolean;
   variant: variant;
   url: string;
+  className?: string
+  alt: string;
 }
 
 function LinkImage({
@@ -31,15 +34,17 @@ function LinkImage({
   url,
   variant,
   imageRepeat,
+  className,
+  alt
 }: LinkImageProps) {
   return (
-    <Link href={url} className={`flex relative`}>
+    <Link href={url} className={`flex relative w-max`}>
       <Image
         src={icon}
-        alt=""
+        alt={alt}
         width={width}
         height={height}
-        className={``}
+        className={`${className}`}
         unoptimized={typeof icon === "string"}
       />
       {imageRepeat && (

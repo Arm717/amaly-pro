@@ -1,5 +1,4 @@
-import LinkImage from "@/app/_components/link-image/LinkImage";
-import TitleImage from "@/app/_components/title-image/TitleImage";
+import TitleImage from "@/app/_components/title/title-image/TitleImage";
 import { ICategory } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +13,7 @@ function ProductCategory({ productCategory }: IProductCategory) {
     <>
       <Link
         href={`/category/${productCategory.id}`}
-        className="flex flex-col items-center justify-center gap-[10px] border border-black bg-white
+        className="flex flex-col items-center justify-center gap-[10px]  bg-white
         w-[130px]
         h-[182px]
         xsm:[130px]

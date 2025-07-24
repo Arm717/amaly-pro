@@ -1,7 +1,8 @@
 import React from "react";
-import TitleImage from "../../../../_components/title-image/TitleImage";
+
 import ProductList from "./ProductList";
 import { ICategory } from "@/app/types";
+import TitleImage from "@/app/_components/title/title-image/TitleImage";
 
 interface IProductsSection {
   category: ICategory[];

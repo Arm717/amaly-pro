@@ -1,33 +1,38 @@
-"use client"
+"use client";
 
 import Button from "@/app/_components/button/Button";
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Text from "@/app/_components/text/Text";
 import Title from "@/app/_components/title/Title";
+import { useProductContext } from "@/app/context/useProductContext";
 import { IProductsItem } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { handleAddToCart } from "./utils/handleAddToCard";
 
 interface IProductCard {
   product: IProductsItem;
 }
 
 function ProductCard({ product }: IProductCard) {
-  console.log(product);
-
+  const { products, setProducts } = useProductContext();
+  
+  
   return (
     <>
-    <Link href={`/product?id=${product.id}`} className="flex flex-col z-10  border-2 rounded-[20px] border-[var(--yellow)]
-    w-[215px] h-[329px]
-    xsm:w-[215px]
-    xsm:h-[400px]
-    lg:w-[260px]
-    lg:h-[390px]
-    xl:w-[330px]
-    xl:h-[421px]
-    ">
-     
+      <Link
+        href={`/product?id=${product.id}`}
+        className="flex flex-col z-10  border-2 rounded-[20px] border-[var(--yellow)]
+          w-[215px] h-[329px]
+          xsm:w-[215px]
+          xsm:h-[400px]
+          lg:w-[260px]
+          lg:h-[390px]
+          xl:w-[330px]
+          xl:h-[421px]
+         "
+      >
         <div className="p-[10px] h-full">
           <div className="mb-[12px] overflow-hidden rounded-[12px] group">
             <Image
@@ -51,11 +56,11 @@ function ProductCard({ product }: IProductCard) {
               className=" lg:text-[10px] xl:text-sm"
               value={`Белки: ${product.protein} гр.`}
             />
-            <Text 
-            fontSize="sm"
-            className="lg:text-[10px] xl:text-sm"
-            as="span"
-            value={`Жиры: ${product.fat} гр.`} 
+            <Text
+              fontSize="sm"
+              className="lg:text-[10px] xl:text-sm"
+              as="span"
+              value={`Жиры: ${product.fat} гр.`}
             />
             <Text
               fontSize="sm"
@@ -93,21 +98,19 @@ function ProductCard({ product }: IProductCard) {
                 title="В корзину"
                 textSize="sm"
                 iconPosition="right"
-                onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                console.log("clicked");
-              }}
+                onClick={(e) => handleAddToCart(e, product, setProducts)}
               />
             ) : (
               <>
-                <Button variant="custom">Будет Позже</Button>
+                <Button onClick={(e) =>{
+                  e.preventDefault();
+                  e.stopPropagation();
+                }} variant="custom">Будет Позже</Button>
               </>
             )}
           </div>
         </div>
-    
-    </Link>
+      </Link>
     </>
   );
 }
