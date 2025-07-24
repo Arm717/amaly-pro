@@ -9,16 +9,15 @@ import { IProductsItem } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { handleAddToCart } from "./utils/handleAddToCard";
 
 interface IProductCard {
   product: IProductsItem;
 }
 
 function ProductCard({ product }: IProductCard) {
-  const { products, setProducts } = useProductContext();
-  
-  
+  const { products, addToBasket } = useProductContext();
+  console.log(products);
+
   return (
     <>
       <Link
@@ -98,14 +97,23 @@ function ProductCard({ product }: IProductCard) {
                 title="В корзину"
                 textSize="sm"
                 iconPosition="right"
-                onClick={(e) => handleAddToCart(e, product, setProducts)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  addToBasket(product)
+                }}
               />
             ) : (
               <>
-                <Button onClick={(e) =>{
-                  e.preventDefault();
-                  e.stopPropagation();
-                }} variant="custom">Будет Позже</Button>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  variant="custom"
+                >
+                  Будет Позже
+                </Button>
               </>
             )}
           </div>

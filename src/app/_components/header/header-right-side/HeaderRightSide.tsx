@@ -7,6 +7,7 @@ import { ICategorys } from "@/app/types";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
 
+
 function HeaderRightSide({ category }: ICategorys) {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
@@ -49,7 +50,7 @@ function HeaderRightSide({ category }: ICategorys) {
 
       <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
 
-      <LinkImage width={24} height={24} url="/basket" variant="basket" title="0" icon="/basket.png" />
+      <LinkImage width={24} height={24} url="/basket" variant="basket" title="0" icon="/basket.png" alt="basket" />
 
       <div className="lg:hidden max-sm:pr-2">
         <ButtonIcon
