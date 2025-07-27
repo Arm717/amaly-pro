@@ -17,7 +17,7 @@ export interface ICategory {
     id:number;
     name: string;
     image: string;
-    status:number
+    status:number;
     created_at: string;
     updated_at: string;
     products: IProductsItem[];

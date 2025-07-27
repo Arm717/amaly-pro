@@ -5,7 +5,6 @@ import FooterContent from './footer-content/FooterContent';
 
 async function Footer() {
   const category = await allCategory();
-  console.log(category);
   
   return (
     <div className="flex items-end justify-center w-full  box-border  bg-[url(/footer.png)]  bg-[length:100%_100%] bg-center bg-no-repeat xsm:h-[658px] xl:h-[378px]">

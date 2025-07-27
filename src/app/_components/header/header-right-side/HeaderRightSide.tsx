@@ -6,12 +6,15 @@ import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import { ICategorys } from "@/app/types";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
+import { useProductContext } from "@/app/context/useProductContext";
 
 
-function HeaderRightSide({ category }: ICategorys) {
+function HeaderRightSide() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const {basketQuantity} = useProductContext();
+   
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1024px)");
@@ -50,7 +53,7 @@ function HeaderRightSide({ category }: ICategorys) {
 
       <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
 
-      <LinkImage width={24} height={24} url="/basket" variant="basket" title="0" icon="/basket.png" alt="basket" />
+      <LinkImage width={24} height={24} url="/basket" variant="basket" title={`0`} icon="/basket.png" alt="basket" />
 
       <div className="lg:hidden max-sm:pr-2">
         <ButtonIcon
@@ -65,7 +68,6 @@ function HeaderRightSide({ category }: ICategorys) {
       {openBurger && (
         <HeaderSideBar
           closeAside={() => setOpenBurger((prev) => !prev)}
-          category={category}
         />
       )}
 

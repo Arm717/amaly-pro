@@ -15,9 +15,9 @@ interface IProductCard {
 }
 
 function ProductCard({ product }: IProductCard) {
-  const { products, addToBasket } = useProductContext();
-  console.log(products);
-
+  const { addToBasket } = useProductContext();
+  
+  
   return (
     <>
       <Link

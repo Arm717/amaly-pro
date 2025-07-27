@@ -16,7 +16,7 @@ const Link_Variant = {
 
 interface LinkImageProps {
   icon: StaticImageData | string;
-  title?: string;
+  title?: string | number;
   width: number;
   height: number;
   imageRepeat?: boolean;

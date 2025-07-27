@@ -3,13 +3,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
-import { ICategorys } from "@/app/types";
 import useScrollPosition from "@/app/_hooks/useScrollPosition";
+import { useProductContext } from "@/app/context/useProductContext";
 
-function HeaderNav({ category }: ICategorys) {
+function HeaderNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
-
+  const { categorie } = useProductContext();
+  
   return (
     <div className={`flex relative items-center justify-center transition-all duration-700 ease-in-out
     ${
@@ -34,12 +35,12 @@ function HeaderNav({ category }: ICategorys) {
 
         <Link href="/3">Контакты</Link>
       </nav>
-      {menuOpen && (
+      {menuOpen && categorie.length > 0 && (
         <div className="absolute top-[50px] left-[65px] py-[8px] px-[10px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-30">
           <ul className="font-firaGo  gap-6 text-[#A4A4A4]">
-            {category.map((item) => (
+            {categorie.map((item) => (
               <li className="font-medium" key={item.id}>
-                <Link href="/" className="block ">
+                <Link href={`/category/${item.id}`} className="block ">
                   {item.name}
                 </Link>
               </li>

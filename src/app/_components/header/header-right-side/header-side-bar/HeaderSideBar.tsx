@@ -1,17 +1,19 @@
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Input from "@/app/_components/input/Input";
+import { useProductContext } from "@/app/context/useProductContext";
 import { IAllCategory } from "@/app/types";
 import Link from "next/link";
 import React, { useState } from "react";
 
 interface IHeaderAside {
-  category: IAllCategory;
   closeAside: () => void;
 }
 
-function HeaderSideBar({ category, closeAside }: IHeaderAside) {
+function HeaderSideBar({closeAside }: IHeaderAside) {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const {categorie} = useProductContext();
+ 
+  
   return (
     <div className="fixed top-0 right-0 w-[260px] h-screen bg-yellow-400 z-50 shadow-xl font-firaGo  flex flex-col justify-between">
       <div>
@@ -53,7 +55,7 @@ function HeaderSideBar({ category, closeAside }: IHeaderAside) {
 
             {menuOpen && (
               <ul className="mt-[10px] ml-[12px] max-h-[301px] overflow-y-auto text-sm font-normal space-y-[8px] text-[#594700]">
-                {category.map((item) => (
+                {categorie.map((item) => (
                   <li key={item.id}>
                     <Link href="/">{item.name}</Link>
                   </li>

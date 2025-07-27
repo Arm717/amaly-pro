@@ -1,31 +1,33 @@
+"use client"
 import React from "react";
 
 import HeaderNav from "./header-nav/HeaderNav";
-import { allCategory } from "@/app/services/allCategory";
 import HeaderRightSide from "./header-right-side/HeaderRightSide";
 import HeaderLogo from "./header-logo/HeaderLogo";
 import HeaderSection from "./header-section/HeaderSection";
+import { allCategory } from "@/app/services/allCategory";
+import { usePathname } from "next/navigation";
 
-interface IHeader {
-  sectionVisible?: boolean;
-}
 
-async function Header({ sectionVisible }: IHeader) {
+
+async function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   
-  const category = await allCategory();
+  
   return (
     <>
       <header className="sticky flex top-0 z-[999]">
         <div className="flex w-full h-[71px] px-[64px] justify-center bg-[var(--yellow)] max-2xl:px-[20px] max-md:px-[20px] ">
           <div className="relative flex h-full w-[2500px] justify-between">
-            <HeaderLogo />
+            <HeaderLogo alwaysVisible />
             <div className="flex w-[127px] max-sm:w-[50px]"></div>
-            <HeaderNav category={category} />
-            <HeaderRightSide category={category} />
+            <HeaderNav  />
+            <HeaderRightSide  />
           </div>
         </div>
       </header>
-      {sectionVisible && <HeaderSection />}
+      {isHomePage && <HeaderSection />}
     </>
   );
 }

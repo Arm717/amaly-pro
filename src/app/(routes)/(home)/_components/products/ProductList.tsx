@@ -8,6 +8,7 @@ interface IProductList {
 }
 
 function ProductList({ productData }: IProductList) {
+
   const filteredProducts = productData.products
     .filter((item) => item.category_id === productData.id)
     .slice(0, 3);
@@ -40,23 +41,3 @@ function ProductList({ productData }: IProductList) {
 
 export default ProductList;
 
-{
-  /* <div className="flex h-[450px] border border-black mb-[20px] bg-white">
-      
-      <div className="w-[213px] shrink-0 flex items-center justify-center">
-        <ProductCategory productCategory={productData} />
-      </div>
-
-     
-      <div className="flex-1 h-full overflow-x-auto">
-        <div className="flex gap-[20px] w-max h-full px-4 items-center">
-          {productData.products.map((item, index) => {
-            if (productData.id === item.category_id && index <= 2) {
-              return <ProductCard key={item.id} product={item} />;
-            }
-            return null;
-          })}
-        </div>
-      </div>
-    </div> */
-}

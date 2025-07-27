@@ -7,85 +7,60 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { ICategory, IProductsItem } from "../types";
-import useLocalStorage from "./useLocalStorage";
+import { IAllCategory, ICategory, IHomeData, IProductsItem } from "../types";
+import useLocalStorage from "./hooks/useLocalStorage";
+import useProducts from "./hooks/useProducts";
 
 interface ProductContextType {
+  homeData:IHomeData;
   products: IProductsItem[];
-  categorie: ICategory[];
+  categorie: IAllCategory;
   basketQuantity: number;
   addToBasket: (product: IProductsItem) => void;
   decreaseQuantity: (product: IProductsItem) => void;
   removeFromBasket: (productId: number) => void;
   clearBasket: () => void;
-  setCategorie: React.Dispatch<React.SetStateAction<ICategory[]>>;
+  setCategorie: React.Dispatch<React.SetStateAction<IAllCategory>>;
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
 
 export const ProductProvider = ({
   children,
+  initialHomeData = { category: [], about: { id: 0, image: "", text: "" } },
   initialCategorie = [],
 }: {
   children: ReactNode;
-  initialCategorie?: ICategory[];
+  initialHomeData?: IHomeData;
+  initialCategorie?: IAllCategory;
 }) => {
-  const [categorie, setCategorie] = useState<ICategory[]>(initialCategorie);
+  const [homeData] = useState<IHomeData>(initialHomeData);
 
-  const [products, setProducts] = useLocalStorage<IProductsItem[]>("cart", []);
+  const [categorie, setCategorie] = useState<IAllCategory>(initialCategorie);
+
+  const {
+    products,
+    addToBasket,
+    decreaseQuantity,
+    removeFromBasket,
+    clearBasket,
+  } = useProducts();
+
 
   const [basketQuantity, setBasketQuantity] = useLocalStorage<number>(
     "basket",
     0
   );
 
-  useEffect(() => {
-    const productsCount = products.reduce(
-      (acc, item) => acc + (item.quantity ?? 1),
-      0
-    );
-    setBasketQuantity(productsCount);
-  }, [products, setBasketQuantity]);
-
-  const addToBasket = (product: IProductsItem) => {
-    setProducts((prev) => {
-      const existing = prev.find((p) => p.id === product.id);
-      if (existing) {
-        return prev.map((prevProduct) =>
-          prevProduct.id === product.id
-            ? { ...prevProduct, quantity: (prevProduct.quantity ?? 1) + 1 }
-            : prevProduct
-        );
-      }
-      return [...prev, { ...product, quantity: 1 }];
-    });
-  };
-
-  const decreaseQuantity = (product: IProductsItem) => {
-    setProducts((prev) =>
-      prev
-        .map((prevProduct) =>
-          prevProduct.id === product.id
-            ? { ...prevProduct, quantity: (prevProduct.quantity ?? 1) - 1 }
-            : prevProduct
-        )
-        .filter((product) => (product.quantity ?? 1) > 0)
-    );
-  };
-
-  const removeFromBasket = (productId: number) => {
-    setProducts((prev) =>
-      prev.filter((prevProduct) => prevProduct.id !== productId)
-    );
-  };
-
-  const clearBasket = () => {
-    setProducts([]);
-  };
+ useEffect(() => {
+  const productsCount = products.reduce((acc, item) => acc + (item.quantity ?? 1), 0);
+  setBasketQuantity(productsCount);
+}, [products]);
 
   return (
     <ProductContext.Provider
       value={{
+        homeData, 
         categorie,
         products,
         basketQuantity,

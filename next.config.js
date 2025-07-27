@@ -2,9 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-     domains: ['api.amalys.pro'],
+  
     remotePatterns: [
-      
+      {
+        protocol: 'https',
+        hostname: 'api.amalys.pro',
+        port: '',
+        pathname: '/**',  
+      },
     ],
   },
 };

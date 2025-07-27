@@ -2,17 +2,14 @@
 
 import React from "react";
 
-import { IAbout } from "@/app/types";
 import DOMPurify from 'isomorphic-dompurify';
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
+import { useProductContext } from "@/app/context/useProductContext";
 
-
-interface IAboutUsSection {
-  description: IAbout;
-}
-
-function AboutUsSection({ description }: IAboutUsSection) {
-  const cleanHtml = DOMPurify.sanitize(description.text);
+function AboutUsSection() {
+  const  {homeData} = useProductContext();
+  const cleanHtml = DOMPurify.sanitize(homeData.about.text);
+  
 
   return (
     <div className="mb-[100px]">

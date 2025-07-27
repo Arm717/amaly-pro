@@ -1,14 +1,15 @@
+"use client"
 import React from "react";
 
 import ProductList from "./ProductList";
-import { ICategory } from "@/app/types";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
+import { useProductContext } from "@/app/context/useProductContext";
 
-interface IProductsSection {
-  category: ICategory[];
-}
+function ProductsSection() {
 
-function ProductsSection({ category }: IProductsSection) {
+  const { homeData } = useProductContext();
+  
+  
   return (
     <>
       <div className="flex flex-col justify-center bg-white">
@@ -42,7 +43,7 @@ function ProductsSection({ category }: IProductsSection) {
           />
         </div>
 
-        {category.map((item) => (
+        {homeData.category.map((item) => (
           <ProductList key={item.id} productData={item} />
         ))}
       </div>
