@@ -53,7 +53,7 @@ function FooterContent({ category }: ICategorys) {
             alt="callNum"
           />
         </div>
-        <div className="flex w-[172px]  ml-3 mr-2 gap-[18px] 2xl:gap-[40px]">
+        <div className="flex w-[172px] ml-3 mr-2 gap-[18px] 2xl:gap-[40px] justify-center">
           <LinkImage
             className="invert brightness-0"
             icon="/facebookIcon.svg"

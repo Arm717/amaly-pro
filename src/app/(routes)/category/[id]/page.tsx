@@ -1,9 +1,23 @@
-import React from 'react'
+"use server"
+import Category from "./_components/Category";
+import { getCategoryPageData } from "@/app/services/getCategoryPageData";
 
-function Category() {
-  return (
-    <div>Category</div>
-  )
+interface IParams {
+  id: string;
 }
 
-export default Category
+async function CategoryPage({params,searchParams}: {params: IParams,searchParams: { sort?: string }}) {
+  const id  = Number(params.id);
+  const sort = searchParams.sort ; // Default to null if sort is not provided
+  
+  const categoryData = await getCategoryPageData({ id,sort }); // Replace with dynamic ID as needed
+  
+  console.log(searchParams, '++==========');
+  
+  
+  return (
+    <Category categoryData={categoryData} />
+  );
+}
+
+export default CategoryPage;

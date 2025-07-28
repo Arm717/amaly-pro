@@ -33,7 +33,7 @@ function ProductCard({ product }: IProductCard) {
          "
       >
         <div className="p-[10px] h-full">
-          <div className="mb-[12px] overflow-hidden rounded-[12px] group">
+          <div className="mb-[12px] overflow-hidden rounded-[12px] group w-[306px] h-[204px]">
             <Image
               width={306}
               height={204}
