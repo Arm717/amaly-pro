@@ -16,6 +16,14 @@ interface IProductCard {
 
 function ProductCard({ product }: IProductCard) {
   const { addToBasket } = useProductContext();
+
+  //  w-[215px] h-[329px]
+  //         xsm:w-[215px]
+  //         xsm:h-[400px]
+  //         lg:w-[260px]
+  //         lg:h-[390px]
+  //         xl:w-[330px]
+  //         xl:h-[421px]
   
   
   return (
@@ -23,21 +31,15 @@ function ProductCard({ product }: IProductCard) {
       <Link
         href={`/product?id=${product.id}`}
         className="flex flex-col z-10  border-2 rounded-[20px] border-[var(--yellow)]
-          w-[215px] h-[329px]
-          xsm:w-[215px]
-          xsm:h-[400px]
-          lg:w-[260px]
-          lg:h-[390px]
-          xl:w-[330px]
-          xl:h-[421px]
+         h-full
          "
       >
-        <div className="p-[10px] h-full">
-          <div className="mb-[12px] overflow-hidden rounded-[12px] group w-[306px] h-[204px]">
+        <div className="px-[10px] pt-[10px] h-full">
+          <div className="mb-[12px] overflow-hidden rounded-[12px] group max-h-[204px]">
             <Image
               width={306}
               height={204}
-              className="transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full transition-transform duration-300 group-hover:scale-110"
               src={`https://api.amalys.pro/storage/product/${product.image}`}
               alt={product.name}
             />
@@ -68,7 +70,7 @@ function ProductCard({ product }: IProductCard) {
               value={`Углеводы: ${product.carbohydrates} гр.`}
             />
           </div>
-          <div className="text-sm line-clamp-1 font-firaGo mb-[6px]">
+          <div className="text-sm line-clamp-2 font-firaGo mb-[6px]">
             {product.text}
           </div>
 

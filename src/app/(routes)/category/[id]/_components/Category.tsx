@@ -42,7 +42,7 @@ const handleSortChange = (sort: string) => {
   return (
     <div className="flex flex-col items-center justify-center font-firaGo">
       <Section>
-        <div className="flex justify-center mt-[100px]">
+        <div className="flex justify-center mt-[100px] ">
           <TitleImage
             titleClassName="font-extrabold text-4xl "
             as="h2"
@@ -83,13 +83,13 @@ const handleSortChange = (sort: string) => {
           )}
         </div>
 
-        <div className="flex flex-wrap  gap-4 mt-[30px]">
+        <div className="grid grid-cols-2 gap-4  mt-[30px]   lg:grid-cols-3 mx-5 sxl:grid-cols-4  ">
           {categoryData.product.data.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        <div className="mt-[40px]">
+        <div className="mt-[40px] ">
           <TitleImage
             as="h6"
             src="/smallVector.png"
@@ -130,11 +130,11 @@ const handleSortChange = (sort: string) => {
           />
         </div>
 
-        <div className="flex flex-wrap  gap-4 mt-[30px]">
+        {/* <div className="flex flex-wrap  gap-4 mt-[30px]">
           {categoryData.product_related.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
+        </div> */}
       </Section>
     </div>
   );
