@@ -40,7 +40,7 @@ function HeaderNav() {
           <ul className="font-firaGo  gap-6 text-[#A4A4A4]">
             {categorie.map((item) => (
               <li className="font-medium" key={item.id}>
-                <Link href={`/category/${item.id}`} className="block ">
+                <Link onClick={()=> setMenuOpen((prev)=>!prev)} href={`/category/${item.id}`} className="block ">
                   {item.name}
                 </Link>
               </li>

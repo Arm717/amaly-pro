@@ -57,7 +57,7 @@ function HeaderSideBar({closeAside }: IHeaderAside) {
               <ul className="mt-[10px] ml-[12px] max-h-[301px] overflow-y-auto text-sm font-normal space-y-[8px] text-[#594700]">
                 {categorie.map((item) => (
                   <li key={item.id}>
-                    <Link href="/">{item.name}</Link>
+                    <Link onClick={()=> closeAside()} href={`/category/${item.id}`}>{item.name}</Link>
                   </li>
                 ))}
               </ul>

@@ -13,29 +13,44 @@ function ProductList({ productData }: IProductList) {
     .slice(0, 3);
 
   return (
-    <div className="flex h-[400px]  mb-5 bg-white   xsm:mx-4 2xxl:mx-0 border border-black md:h-[421px]">
+    <div className="flex h-[400px]  mb-5 bg-white w-[300px]  min-w-full mx-4  2xxl:mx-0 border border-black xsm:h-[431px]">
       {/* Левый блок — не скроллится */}
-      <div className=" flex items-center  bg-white shrink-0 mr-[30px] md:mr-[12px] lg:mr-[22px] sxl:mr-[117px]">
+      <div className=" flex items-center  bg-white shrink-0 mr-[30px] xsm:mr-[10px] lg:mr-[22px] sxl:mr-[117px]">
         <ProductCategory productCategory={productData} />
       </div>
 
       {/* Правый блок — скроллится по x при малых экранах */}
-      <div className="overflow-x-auto w-full lg:overflow-visible mr-0 lg:mr-2 ">
-        <div
-          className="
-                      flex gap-3 h-full 
-                      lg:grid lg:grid-cols-3 xl:gap-6 
-                    "
-        >
-          {filteredProducts.map((item) => (
-            <div className="min-w-[200px] md:w-full" key={item.id}>
-              <ProductCard product={item} />
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-1 overflow-x-auto w-full lg:overflow-visible mr-2 lg:grid lg:grid-cols-3 xl:gap-6 border border-yellow-400  gap-3 h-full">
+        {filteredProducts.map((item) => (
+          <div
+            key={item.id}
+            className="flex-shrink-0 xsm:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
+          >
+            <ProductCard product={item} />
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default ProductList;
+
+// {/* <div className="flex h-[400px]  mb-5 bg-white   xsm:mx-4 2xxl:mx-0 border border-black xsm:h-[431px]">
+//       {/* Левый блок — не скроллится */}
+//       <div className=" flex items-center  bg-white shrink-0 mr-[30px] xsm:mr-[10px] lg:mr-[22px] sxl:mr-[117px]">
+//         <ProductCategory productCategory={productData} />
+//       </div>
+
+//       {/* Правый блок — скроллится по x при малых экранах */}
+//       <div className="flex flex-1 overflow-x-scroll w-full lg:overflow-visible mr-2 lg:grid lg:grid-cols-3 xl:gap-6 border border-yellow-400  gap-3 h-full">
+//         {filteredProducts.map((item) => (
+//           <div
+//             key={item.id}
+//             className="flex-shrink-0 xsm:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
+//           >
+//             <ProductCard product={item} />
+//           </div>
+//         ))}
+//       </div>
+//     </div> */}

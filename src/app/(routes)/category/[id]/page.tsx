@@ -1,5 +1,6 @@
 "use server"
-import Category from "./_components/Category";
+import Section from "@/app/_components/section/Section";
+import CategoryContainer from "./_components/CategoryContainer";
 import { getCategoryPageData } from "@/app/services/getCategoryPageData";
 
 interface IParams {
@@ -16,7 +17,13 @@ async function CategoryPage({params,searchParams}: {params: IParams,searchParams
   
   
   return (
-    <Category categoryData={categoryData} />
+    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
+  
+        <Section>
+          <CategoryContainer categoryData={categoryData} />
+        </Section>
+      
+    </div>
   );
 }
 
