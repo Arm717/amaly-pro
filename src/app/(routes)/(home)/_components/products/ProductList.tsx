@@ -20,15 +20,16 @@ function ProductList({ productData }: IProductList) {
       </div>
 
       {/* Правый блок — скроллится по x при малых экранах */}
-      <div className="overflow-x-auto w-full lg:overflow-visible mr-0 lg:mr-2 ">
+      <div className="flex-1 overflow-x-auto w-full lg:overflow-visible mr-0 lg:mr-2 ">
         <div
           className="
                       flex gap-3 h-full 
                       lg:grid lg:grid-cols-3 xl:gap-6 
+                      
                     "
         >
           {filteredProducts.map((item) => (
-            <div className="min-w-[200px] md:w-full" key={item.id}>
+            <div className="w-full" key={item.id}>
               <ProductCard product={item} />
             </div>
           ))}

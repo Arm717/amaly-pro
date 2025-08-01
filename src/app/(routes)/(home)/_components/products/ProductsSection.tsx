@@ -23,6 +23,29 @@ function ProductsSection() {
             height={102}
             imageWidth={490}
             imageHeight={300}
+            alt=""
+          />
+        </div>
+
+        {homeData.category.map((item) => (
+          <ProductList key={item.id} productData={item} />
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default ProductsSection;
+
+{/* <TitleImage
+            as="h1"
+            src="/maskGroup.png"
+            value="Рекомендуемые продукты"
+            repeat
+            width={495}
+            height={102}
+            imageWidth={490}
+            imageHeight={300}
             className="
             w-[273px]
             h-[64px]
@@ -40,15 +63,4 @@ function ProductsSection() {
             lg:w-[250px]
             lg:h-[100px]
             "
-          />
-        </div>
-
-        {homeData.category.map((item) => (
-          <ProductList key={item.id} productData={item} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-export default ProductsSection;
+          /> */}

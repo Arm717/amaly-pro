@@ -20,6 +20,7 @@ function AboutUsSection() {
           value="О нас"
           width={249}
           height={97}
+          alt=""
         />
       </div>
       <div id="aboutUs" className="flex flex-col items-center lg:flex-row w-full px-[20px]">

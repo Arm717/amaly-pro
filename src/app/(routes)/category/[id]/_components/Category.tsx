@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Section from "@/app/_components/section/Section";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import Link from "next/link";
 import { ICategoryPageDatas } from "@/app/types";
 import ProductCard from "@/app/(routes)/(home)/_components/products/ProductCard";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -16,10 +15,10 @@ interface ICategoryComponent {
 
 function Category({ categoryData }: ICategoryComponent) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sortByName, setSortByName] = useState("По возрастанию цены");
   const searchParams = useSearchParams();
-    const pathname = usePathname();
+  const pathname = usePathname();
   const router = useRouter();
- 
 
   const sortBy = [
     { id: 1, sortby: "max_price", name: "По возрастанию цены" },
@@ -28,16 +27,14 @@ function Category({ categoryData }: ICategoryComponent) {
     { id: 4, sortby: "min_calories", name: "По убыванию калорийности" },
   ];
 
+  const handleSortChange = (sort: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", sort);
+    params.set("page", "1");
 
-const handleSortChange = (sort: string) => {
-  const params = new URLSearchParams(searchParams.toString());
-  params.set("sort", sort);
-  params.set("page", "1");
-
-  router.push(`${pathname}?${params.toString()}`);
-  setMenuOpen(false);
-};
-
+    router.push(`${pathname}?${params.toString()}`);
+    setMenuOpen(false);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center font-firaGo">
@@ -59,8 +56,7 @@ const handleSortChange = (sort: string) => {
             height={16}
             variant="headerNavBtn"
             icon={menuOpen ? "/chevron-up.png" : "/chevron-down.png"}
-            title="Сортировать :
-По возрастанию цены"
+            title={`Сортировать :${sortByName}`}
             onClick={() => setMenuOpen((prev) => !prev)}
             iconPosition="right"
           />
@@ -72,7 +68,10 @@ const handleSortChange = (sort: string) => {
                   <li className="font-medium" key={item.id}>
                     <button
                       className="block "
-                        onClick={() => handleSortChange(item.sortby)}
+                      onClick={() => {
+                        handleSortChange(item.sortby);
+                        setSortByName(item.name);
+                      }}
                     >
                       {item.name}
                     </button>
