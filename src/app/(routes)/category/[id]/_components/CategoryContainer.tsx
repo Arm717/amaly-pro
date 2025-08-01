@@ -39,12 +39,11 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
     <>
       <div className="flex justify-center mt-20 sm:mt-24 px-4 sm:px-6 w-full max-w-screen-md mx-auto">
         <TitleImage
-          titleClassName="font-extrabold text-2xl sm:text-3xl md:text-4xl truncate"
+          
           as="h2"
-          src="/maskGroup.png"
+          cloudVariant="oneCloud"
           value={categoryData.category.name}
-          width={249}
-          height={97}
+          
         />
       </div>
       <div className="flex flex-col mx-5 ">
@@ -89,29 +88,22 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
       </div>
 
       <div className="mt-10">
-        <TitleImage
+        {/* <TitleImage
           as="h6"
           src="/smallVector.png"
           width={22}
           height={16}
           value="1"
           alt="small vector"
-        />
+        /> */}
       </div>
           <div className="flex flex-col mx-5 ">
             <div className="flex justify-center mt-[24px]">
         <TitleImage
           as="h1"
-          src="/maskGroup.png"
+          cloudVariant="twoCloud"
           value="Рекомендуемые продукты"
-          repeat
-          width={495}
-          height={102}
-          imageWidth={490}
-          imageHeight={300}
-          className="w-[273px] h-[64px] sm:w-[273px] sm:h-[64px] lg:w-[495px] lg:h-[102px]"
-          titleClassName="text-lg sm:text-3xl"
-          imageClassName="w-[150px] h-[64px] sm:w-[150px] sm:h-[64px] lg:w-[250px] lg:h-[100px]"
+          
         />
       </div>
 

@@ -40,14 +40,14 @@ function Category({ categoryData }: ICategoryComponent) {
     <div className="flex flex-col items-center justify-center font-firaGo">
       <Section>
         <div className="flex justify-center mt-[100px] ">
-          <TitleImage
+          {/* <TitleImage
             as="h2"
             src="/maskGroup.png"
             value={categoryData.category.name}
             width={249}
             height={97}
             alt="mask group"
-          />
+          /> */}
         </div>
 
         <div className="flex relative">
@@ -89,18 +89,18 @@ function Category({ categoryData }: ICategoryComponent) {
         </div>
 
         <div className="mt-[40px] ">
-          <TitleImage
+          {/* <TitleImage
             as="h6"
             src="/smallVector.png"
             width={22}
             height={16}
             value="1"
             alt="small vector"
-          />
+          /> */}
         </div>
 
         <div className="flex justify-center mt-[100px]">
-          <TitleImage
+          {/* <TitleImage
             as="h1"
             src="/maskGroup.png"
             value="Рекомендуемые продукты"
@@ -126,7 +126,7 @@ function Category({ categoryData }: ICategoryComponent) {
             // lg:w-[250px]
             // lg:h-[100px]
             // "
-          />
+          /> */}
         </div>
 
         {/* <div className="flex flex-wrap  gap-4 mt-[30px]">

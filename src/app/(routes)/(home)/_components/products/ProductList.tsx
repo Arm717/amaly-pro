@@ -13,64 +13,25 @@ function ProductList({ productData }: IProductList) {
     .slice(0, 3);
 
   return (
-    // <div className="flex h-[400px] mb-5 bg-white max-w-[300px] 3xxs:max-w-full mx-2 border border-black xsm:h-[431px] 2xxl:mx-0 ">
-    //   {/* Левый блок — не скроллится */}
-    //   <div className=" flex items-center  bg-white shrink-0 mr-[30px] xsm:mr-[10px] lg:mr-[22px] sxl:mr-[117px]">
-    //     <ProductCategory productCategory={productData} />
-    //   </div>
-
-
-    //   {/* Правый блок — скроллится по x при малых экранах */}
-    //   <div className="flex flex-1  overflow-x-auto w-full lg:overflow-visible  lg:grid lg:grid-cols-3 xl:gap-6 border border-yellow-400  gap-3 h-full">
-    //     {filteredProducts.map((item) => (
-    //       <div
-    //         key={item.id}
-    //         className="flex-shrink-0 xsm:min-w-[100px] xsm:max-w-[249px] md:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
-    //       >
-    //         <ProductCard product={item} />
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-
-     
-      <div className="flex-1 overflow-x-auto w-full lg:overflow-visible mr-0 lg:mr-2 ">
-        <div
-          className="
-                      flex gap-3 h-full 
-                      lg:grid lg:grid-cols-3 xl:gap-6 
-                      
-                    "
-        >
-          {filteredProducts.map((item) => (
-            <div className="w-full" key={item.id}>
-              <ProductCard product={item} />
-            </div>
-          ))}
-        </div>
+    <div className="grid grid-cols-4 items-center h-[421px] mb-5 bg-white xsm:h-[431px] xsm:mx-4 2xxl:mx-0 border border-black">
+      {/* Левая колонка — занимает 1/3 на lg и выше */}
+      <div className="bg-white col-span-1 mr-2 xsm:mr-2 lg:mr-[116px]">
+        <ProductCategory productCategory={productData} />
       </div>
 
-
+      {/* Правая часть — занимает 2/3 на lg и выше */}
+      <div className="col-span-3 overflow-x-auto w-full lg:overflow-visible mr-2 grid grid-cols-3 xl:gap-6 gap-3 h-full">
+        {filteredProducts.map((item) => (
+          <div
+            key={item.id}
+            className="flex-shrink-0 xsm:max-w-[249px] md:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
+          >
+            <ProductCard product={item} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
 export default ProductList;
-
-// {/* <div className="flex h-[400px]  mb-5 bg-white   xsm:mx-4 2xxl:mx-0 border border-black xsm:h-[431px]">
-//       {/* Левый блок — не скроллится */}
-//       <div className=" flex items-center  bg-white shrink-0 mr-[30px] xsm:mr-[10px] lg:mr-[22px] sxl:mr-[117px]">
-//         <ProductCategory productCategory={productData} />
-//       </div>
-
-//       {/* Правый блок — скроллится по x при малых экранах */}
-//       <div className="flex flex-1 overflow-x-scroll w-full lg:overflow-visible mr-2 lg:grid lg:grid-cols-3 xl:gap-6 border border-yellow-400  gap-3 h-full">
-//         {filteredProducts.map((item) => (
-//           <div
-//             key={item.id}
-//             className="flex-shrink-0 xsm:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
-//           >
-//             <ProductCard product={item} />
-//           </div>
-//         ))}
-//       </div>
-//     </div> */}

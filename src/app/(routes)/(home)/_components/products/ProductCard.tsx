@@ -47,7 +47,7 @@ function ProductCard({ product }: IProductCard) {
 
           <Title
             as="h5"
-            className="font-semibold mb-[6px] xsm:text-[15px] lg:text-sm"
+            className="font-semibold mb-[6px] xsm:text-[13px] xl:text-base"
             value={product.name}
           />
           <div className="flex xsm:flex-wrap lg:flex-row gap-[18px] xsm:gap-[10px] text-[var(--grey)] mb-[6px]">

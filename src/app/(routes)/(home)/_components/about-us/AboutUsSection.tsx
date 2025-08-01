@@ -16,10 +16,8 @@ function AboutUsSection() {
       <div className="flex justify-center pb-[27px]">
         <TitleImage
           as="h2"
-          src="/maskGroup.png"
+          cloudVariant="oneCloud"
           value="О нас"
-          width={249}
-          height={97}
         />
       </div>
       <div id="aboutUs" className="flex flex-col items-center lg:flex-row w-full px-[20px]">
