@@ -12,7 +12,7 @@ interface ITitleImageProps {
   width: number;
   height: number;
   imageWidth?: number;
-  imageHeight?: number;
+  imageHeight?: number;  
   alt: string;
   repeat?: boolean;
   reverse?: boolean;
@@ -48,7 +48,7 @@ const TitleImage = ({
     reverse && [
       "w-[50px]",
       "xsm:w-[50px]",
-      "lg:w-[90px]",
+      "lg:w-[90px] ",
       "xl:w-[110px]",
       "",
       reverse && repeat && "scale-90",
