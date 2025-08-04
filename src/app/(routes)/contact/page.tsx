@@ -12,8 +12,8 @@ function ContactPage() {
       <Section>
         <div className="flex flex-col justify-center mx-[16px] pt-[40px]">
           <TitleImage as="h1" cloudVariant="oneCloud" value="Контакты" />
-          <div className="grid grid-cols-[1fr_2fr] gap-5 mt-6 mb-[32px]">
-            <div className="rounded-[10px] px-8 py-[100px] border-2 border-yellow-400 flex items-center flex-col gap-[16px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-5 mt-6 mb-[32px]">
+            <div className="rounded-[10px] px-8 py-[100px] border-2 border-[var(--yellow)] flex items-center flex-col gap-[16px]">
               <LinkImage
                 url={"info@amalys.pro"}
                 icon="/email.png"

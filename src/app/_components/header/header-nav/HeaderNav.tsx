@@ -34,7 +34,7 @@ function HeaderNav() {
         />
 
         <Link href="/contact">Контакты</Link>
-        <Link href="/4">Условия доставки</Link>
+        <Link href="/delivery-policy">Условия доставки</Link>
       </nav>
       {menuOpen && categorie.length > 0 && (
         <div className="absolute top-[50px] left-[65px] py-[8px] px-[10px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-30">

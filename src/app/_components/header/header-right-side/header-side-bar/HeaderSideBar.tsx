@@ -39,7 +39,7 @@ function HeaderSideBar({closeAside }: IHeaderAside) {
 
         <nav className="flex relative flex-col  font-medium text-black gap-[32px] ml-[20px]">
           <div>
-            <Link href="/about">О нас</Link>
+            <Link onClick={()=> closeAside()} href="/#about">О нас</Link>
           </div>
 
           <div className="relative ">
@@ -65,7 +65,10 @@ function HeaderSideBar({closeAside }: IHeaderAside) {
           </div>
 
           <div>
-            <Link href="/contacts">Контакты</Link>
+            <Link onClick={()=> closeAside()} href="/contact">Контакты</Link>
+          </div>
+          <div>
+            <Link onClick={()=> closeAside()} href="/delivery-policy">Условия доставки</Link>
           </div>
         </nav>
       </div>
