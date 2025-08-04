@@ -8,7 +8,7 @@ import { ICategoryPageDatas } from "@/app/types";
 import ProductCard from "@/app/(routes)/(home)/_components/products/ProductCard";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import VectorImage from "@/app/_components/text/vector-image/VectorImage";
+import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
 
 interface ICategoryComponent {
   categoryData: ICategoryPageDatas;
@@ -87,7 +87,7 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
       </div>
 
       <div className="flex mt-10 justify-center">
-        <VectorImage as="span" variant="smallVector" text="1" href="/" />
+        <ButtonVector as="span" variant="smallVector" text="1" />
       </div>
       <div className="flex flex-col mx-5 ">
         <div className="flex justify-center mt-[24px]">

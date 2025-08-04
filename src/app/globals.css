@@ -7,6 +7,9 @@
   --foreground: #171717;
   --yellow: #FFCC00;
   --grey: #A4A4A4;
+  
+  --filterYellow: invert(69%) sepia(98%) saturate(749%) hue-rotate(1deg) brightness(102%) contrast(104%);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,6 +93,9 @@
 
 .shake-horizontal {
   animation: shake-horizontal 0.8s linear infinite;
+}
+.yellow-filter {
+  filter: var(--filterYellow);
 }
 
 

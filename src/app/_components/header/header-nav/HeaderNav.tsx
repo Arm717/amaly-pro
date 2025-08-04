@@ -33,7 +33,7 @@ function HeaderNav() {
           iconPosition="right"
         />
 
-        <Link href="/3">Контакты</Link>
+        <Link href="/contact">Контакты</Link>
         <Link href="/4">Условия доставки</Link>
       </nav>
       {menuOpen && categorie.length > 0 && (

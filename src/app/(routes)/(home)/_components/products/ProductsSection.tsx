@@ -3,7 +3,7 @@ import React from "react";
 import ProductList from "./ProductList";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
 import { useProductContext } from "@/app/context/useProductContext";
-import VectorImage from "@/app/_components/text/vector-image/VectorImage";
+import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
 
 function ProductsSection() {
 
@@ -26,7 +26,7 @@ function ProductsSection() {
         ))}
         
         <div className="flex justify-center">
-          <VectorImage as="span" href="/category" text="Смотреть все" variant="bigVector"  />
+          <ButtonVector as="span"  text="Смотреть все" variant="bigVector"  path="/category" />
         </div>
       </div>
     </>

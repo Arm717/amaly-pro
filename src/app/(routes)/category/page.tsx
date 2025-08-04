@@ -1,8 +1,10 @@
-import React from 'react'
+"use server"
+
+import GridCategory from "./_components/GridCategory";
 
 function CategoryPages() {
   return (
-    <div>Category</div>
+    <GridCategory />
   )
 }
 
