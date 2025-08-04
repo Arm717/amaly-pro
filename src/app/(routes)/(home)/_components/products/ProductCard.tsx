@@ -16,15 +16,6 @@ interface IProductCard {
 
 function ProductCard({ product }: IProductCard) {
   const { addToBasket } = useProductContext();
-
-  //  w-[215px] h-[329px]
-  //         xsm:w-[215px]
-  //         xsm:h-[400px]
-  //         lg:w-[260px]
-  //         lg:h-[390px]
-  //         xl:w-[330px]
-  //         xl:h-[421px]
-  
   
   return (
     <>

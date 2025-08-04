@@ -8,6 +8,7 @@ import { ICategoryPageDatas } from "@/app/types";
 import ProductCard from "@/app/(routes)/(home)/_components/products/ProductCard";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import VectorImage from "@/app/_components/text/vector-image/VectorImage";
 
 interface ICategoryComponent {
   categoryData: ICategoryPageDatas;
@@ -39,11 +40,9 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
     <>
       <div className="flex justify-center mt-20 sm:mt-24 px-4 sm:px-6 w-full max-w-screen-md mx-auto">
         <TitleImage
-          
           as="h2"
           cloudVariant="oneCloud"
           value={categoryData.category.name}
-          
         />
       </div>
       <div className="flex flex-col mx-5 ">
@@ -80,40 +79,31 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
 
         <div className="grid grid-cols-1 2xxs:grid-cols-2  lg:grid-cols-3 sxl:grid-cols-4 gap-6 mt-8 ">
           {categoryData.product.data.map((product) => (
-            <div key={product.id} className="flex max-w-[400px]">
+            <div key={product.id} className="flex ">
               <ProductCard product={product} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-10">
-        {/* <TitleImage
-          as="h6"
-          src="/smallVector.png"
-          width={22}
-          height={16}
-          value="1"
-          alt="small vector"
-        /> */}
+      <div className="flex mt-10 justify-center">
+        <VectorImage as="span" variant="smallVector" text="1" href="/" />
       </div>
-          <div className="flex flex-col mx-5 ">
-            <div className="flex justify-center mt-[24px]">
-        <TitleImage
-          as="h1"
-          cloudVariant="twoCloud"
-          value="Рекомендуемые продукты"
-          
-        />
-      </div>
+      <div className="flex flex-col mx-5 ">
+        <div className="flex justify-center mt-[24px]">
+          <TitleImage
+            as="h1"
+            cloudVariant="twoCloud"
+            value="Рекомендуемые продукты"
+          />
+        </div>
 
-      <div className="grid grid-cols-1 2xxs:grid-cols-2  lg:grid-cols-3 sxl:grid-cols-4 gap-4 mt-[30px] mb-[40px]">
-        {categoryData.product_related.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        <div className="grid grid-cols-1 2xxs:grid-cols-2  lg:grid-cols-3 sxl:grid-cols-4 gap-4 mt-[30px] mb-[40px]">
+          {categoryData.product_related.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
-          </div>
-      
     </>
   );
 }

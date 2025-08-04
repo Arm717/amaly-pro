@@ -3,6 +3,7 @@ import React from "react";
 import ProductList from "./ProductList";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
 import { useProductContext } from "@/app/context/useProductContext";
+import VectorImage from "@/app/_components/text/vector-image/VectorImage";
 
 function ProductsSection() {
 
@@ -23,6 +24,10 @@ function ProductsSection() {
         {homeData.category.map((item) => (
           <ProductList key={item.id} productData={item} />
         ))}
+        
+        <div className="flex justify-center">
+          <VectorImage as="span" href="/category" text="Смотреть все" variant="bigVector"  />
+        </div>
       </div>
     </>
   );

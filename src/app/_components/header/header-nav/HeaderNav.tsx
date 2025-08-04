@@ -18,7 +18,7 @@ function HeaderNav() {
               ? "ml-0"
               : "xl:ml-[200px]"
      }
-    max-md:hidden`
+    max-lg:hidden`
     }>
       <nav className="flex font-firaGo font-medium gap-6">
         <Link href="/#aboutUs">О нас</Link>
@@ -34,6 +34,7 @@ function HeaderNav() {
         />
 
         <Link href="/3">Контакты</Link>
+        <Link href="/4">Условия доставки</Link>
       </nav>
       {menuOpen && categorie.length > 0 && (
         <div className="absolute top-[50px] left-[65px] py-[8px] px-[10px] bg-white border-2 border-yellow-400 rounded  w-[260px]  z-30">

@@ -16,8 +16,7 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
   const visible = pathname !== "/" || isScrolled;
 
   return (
-    <div className="absolute z-30 top-[-10px] left-0 max-xl:top-[-5px] max-sm:top-[-5px] max-sm:pl-[20px]">
-      <Link href="/">
+      <Link className="absolute z-30 top-[-10px] left-0 max-xl:top-[-5px] max-sm:top-[-5px] max-sm:pl-[20px]" href="/">
         <Image
           className={`
     transition-all duration-700 ease-in-out origin-top-left
@@ -39,7 +38,6 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
           alt="logo"
         />
       </Link>
-    </div>
   );
 }
 

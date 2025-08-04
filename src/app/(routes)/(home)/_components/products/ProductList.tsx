@@ -13,22 +13,35 @@ function ProductList({ productData }: IProductList) {
     .slice(0, 3);
 
   return (
-    <div className="grid grid-cols-4 items-center h-[421px] mb-5 bg-white xsm:h-[431px] xsm:mx-4 2xxl:mx-0 border border-black">
-      {/* Левая колонка — занимает 1/3 на lg и выше */}
-      <div className="bg-white col-span-1 mr-2 xsm:mr-2 lg:mr-[116px]">
+    <div className="grid grid-cols-4 items-center h-[421px] mb-5 bg-white xsm:h-[431px] xsm:mx-4 2xxl:mx-0 ">
+      
+      <div className="bg-white col-span-1  xsm:mr-[16px] lg:mr-[116px]">
         <ProductCategory productCategory={productData} />
       </div>
 
-      {/* Правая часть — занимает 2/3 на lg и выше */}
-      <div className="col-span-3 overflow-x-auto w-full lg:overflow-visible mr-2 grid grid-cols-3 xl:gap-6 gap-3 h-full">
-        {filteredProducts.map((item) => (
-          <div
-            key={item.id}
-            className="flex-shrink-0 xsm:max-w-[249px] md:max-w-[300px] lg:max-w-full lg:w-full lg:min-w-0"
-          >
-            <ProductCard product={item} />
-          </div>
-        ))}
+      
+      <div className="col-span-3 w-full overflow-x-auto lg:overflow-visible">
+        <div
+          className="
+                      flex gap-3 h-full xsm:mx-4 lg:mx-0
+                      lg:grid lg:grid-cols-3 xl:gap-6
+                    "
+        >
+          {filteredProducts.map((item) => (
+            <div
+              key={item.id}
+              className="
+                          flex-shrink-0 
+                          max-w-[215px]
+                          min-w-[215px] 
+                          md:min-w-[300px] 
+                          lg:min-w-0 lg:max-w-full lg:w-full
+                        "
+            >
+              <ProductCard product={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

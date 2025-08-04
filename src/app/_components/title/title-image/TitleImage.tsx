@@ -36,7 +36,7 @@ const cloudImageVariant = {
     size: { width: 139, height: 55 },
     styles:
       "w-[90px] h-[60px] xsm:w-[90px] xsm:h-[60px] lg:w-[139px] lg:h-[55px]",
-    textSize: "text-sm xsm:text-sm md:text-xl lg:text-2xl",
+    textSize: "text-sm xsm:text-sm  lg:text-2xl",
     alt: "category cloud image",
   },
 };

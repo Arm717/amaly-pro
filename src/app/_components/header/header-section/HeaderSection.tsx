@@ -49,7 +49,7 @@ function HeaderSection() {
           : "opacity-100 translate-x-0 translate-y-0"
       }
     `}
-          src="/maskGroup.png"
+          src="/cloud.png"
           width={350}
           height={137}
           alt=""

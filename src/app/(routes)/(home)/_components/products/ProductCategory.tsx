@@ -13,8 +13,8 @@ function ProductCategory({ productCategory }: IProductCategory) {
     <>
       <Link
         href={`/category/${productCategory.id}`}
-        className="flex flex-col items-center justify-center gap-0 lg:gap-[10px] bg-white
-        border border-black
+        className="flex flex-col items-center max-w-[215px] min-w-[90px] justify-center gap-0 lg:gap-[10px] bg-white
+        
         "
       >
         <Image

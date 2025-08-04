@@ -8,18 +8,16 @@ import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
 import { useProductContext } from "@/app/context/useProductContext";
 
-
 function HeaderRightSide() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const {basketQuantity} = useProductContext();
-   
+  const { basketQuantity } = useProductContext();
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 1524px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
-    
+
     handleResize();
     mediaQuery.addEventListener("change", handleResize);
 
@@ -28,7 +26,7 @@ function HeaderRightSide() {
 
   return (
     <div
-      className="flex items-center gap-10 justify-end w-[690px]  max-2xl:w-[300px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
+      className="flex items-center gap-10 justify-end w-[690px]  max-2xl:w-[258px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
     "
     >
       {openSearch && !isMobile ? (
@@ -53,7 +51,15 @@ function HeaderRightSide() {
 
       <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
 
-      <LinkImage width={24} height={24} url="/basket" variant="basket" title={`0`} icon="/basket.png" alt="basket" />
+      <LinkImage
+        width={24}
+        height={24}
+        url="/basket"
+        variant="basket"
+        title={`0`}
+        icon="/basket.png"
+        alt="basket"
+      />
 
       <div className="lg:hidden max-sm:pr-2">
         <ButtonIcon
@@ -66,9 +72,7 @@ function HeaderRightSide() {
       </div>
 
       {openBurger && (
-        <HeaderSideBar
-          closeAside={() => setOpenBurger((prev) => !prev)}
-        />
+        <HeaderSideBar closeAside={() => setOpenBurger((prev) => !prev)} />
       )}
 
       <a href="tel:+79856486681" className="max-lg:hidden">

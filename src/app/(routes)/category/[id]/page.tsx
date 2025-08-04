@@ -9,11 +9,10 @@ interface IParams {
 
 async function CategoryPage({params,searchParams}: {params: IParams,searchParams: { sort?: string }}) {
   const id  = Number(params.id);
-  const sort = searchParams.sort ; // Default to null if sort is not provided
+  const sort = searchParams.sort;
   
-  const categoryData = await getCategoryPageData({ id,sort }); // Replace with dynamic ID as needed
+  const categoryData = await getCategoryPageData({ id,sort }); 
   
-  console.log(searchParams, '++==========');
   
   
   return (
