@@ -41,9 +41,9 @@ function ContactPage() {
                 title="+7 (985) 648-66-81"
                 alt="callNum"
               />
-              <Text className="text-sm lg:text-base" as="span" value="ИП Айвазян Амаля Норайровна." />
-              <Text className="text-sm lg:text-base" as="span" value="ИНН 770971146940" />
-              <Text className="text-sm lg:text-base" as="span" value="ОГРНИП 322774600601127" />
+              <Text className="text-base" as="span" value="ИП Айвазян Амаля Норайровна." />
+              <Text className="text-base" as="span" value="ИНН 770971146940" />
+              <Text className="text-base" as="span" value="ОГРНИП 322774600601127" />
               <div className="flex justify-center items-center mt-[8px] gap-[18px]">
                 <LinkImage
                   className="yellow-filter"
