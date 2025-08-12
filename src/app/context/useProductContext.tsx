@@ -3,41 +3,31 @@
 import {
   createContext,
   useContext,
-  useState,
   ReactNode,
   useEffect,
 } from "react";
-import { IAllCategory, ICategory, IHomeData, IProductsItem } from "../types";
+import { IProductsItem } from "../types";
 import useLocalStorage from "./hooks/useLocalStorage";
 import useProducts from "./hooks/useProducts";
 
 interface ProductContextType {
-  homeData:IHomeData;
   products: IProductsItem[];
-  categorie: IAllCategory;
   basketQuantity: number;
   addToBasket: (product: IProductsItem) => void;
   decreaseQuantity: (product: IProductsItem) => void;
   removeFromBasket: (productId: number) => void;
   clearBasket: () => void;
-  setCategorie: React.Dispatch<React.SetStateAction<IAllCategory>>;
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
 
 export const ProductProvider = ({
   children,
-  initialHomeData = { category: [], about: { id: 0, image: "", text: "" } },
-  initialCategorie = [],
+  
 }: {
   children: ReactNode;
-  initialHomeData?: IHomeData;
-  initialCategorie?: IAllCategory;
 }) => {
-  const [homeData] = useState<IHomeData>(initialHomeData);
-
-  const [categorie, setCategorie] = useState<IAllCategory>(initialCategorie);
-
+  
   const {
     products,
     addToBasket,
@@ -60,15 +50,12 @@ export const ProductProvider = ({
   return (
     <ProductContext.Provider
       value={{
-        homeData, 
-        categorie,
         products,
         basketQuantity,
         addToBasket,
         decreaseQuantity,
         removeFromBasket,
         clearBasket,
-        setCategorie,
       }}
     >
       {children}

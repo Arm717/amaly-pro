@@ -1,3 +1,4 @@
+"use server";
 import { allCategory } from '@/app/services/allCategory';
 import Image from 'next/image'
 import React from 'react'

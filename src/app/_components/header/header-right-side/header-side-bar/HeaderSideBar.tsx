@@ -7,11 +7,12 @@ import React, { useState } from "react";
 
 interface IHeaderAside {
   closeAside: () => void;
+  categorie: IAllCategory;
 }
 
-function HeaderSideBar({closeAside }: IHeaderAside) {
+function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const {categorie} = useProductContext();
+  // const {categorie} = useProductContext();
  
   
   return (

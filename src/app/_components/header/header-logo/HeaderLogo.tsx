@@ -16,9 +16,12 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
   const visible = pathname !== "/" || isScrolled;
 
   return (
-      <Link className="absolute z-30 top-[-10px] left-0 max-xl:top-[-5px] max-sm:top-[-5px] max-sm:pl-[20px]" href="/">
-        <Image
-          className={`
+    <Link
+      className="absolute z-30 top-[-10px] left-0 max-xl:top-[-5px] max-sm:top-[-5px] max-sm:pl-[20px]"
+      href="/"
+    >
+      <Image
+        className={`
     transition-all duration-700 ease-in-out origin-top-left
     ${
       visible
@@ -32,12 +35,12 @@ function HeaderLogo({ alwaysVisible = false }: IHeaderLogo) {
     max-2xl:bg-white
     opacity-100
   `}
-          src="/logo.png"
-          width={245}
-          height={500}
-          alt="logo"
-        />
-      </Link>
+        src="/logo.png"
+        width={245}
+        height={500}
+        alt="logo"
+      />
+    </Link>
   );
 }
 

@@ -1,10 +1,10 @@
+
 import type { Metadata } from "next";
 
 import Header from "./_components/header/Header";
 import Footer from "./_components/footer/Footer";
 
 import { ProductProvider } from "./context/useProductContext";
-import { getHomeData } from "./services/getHomeData";
 import { allCategory } from "./services/allCategory";
 
 import "./globals.css";
@@ -21,16 +21,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const homeData = await getHomeData();
   const categorie = await allCategory();
 
 
   return (
     <html lang="en">
       <body className="flex flex-col">
-        <ProductProvider initialHomeData={homeData} initialCategorie={categorie}>
-          <Header  />
-            <main className="flex-1">{children}</main>
+        <ProductProvider >
+          <Header categorie={categorie} />
+            
+              <main className="flex-1">{children}</main>
+            
           <Footer />
         </ProductProvider>
       </body>

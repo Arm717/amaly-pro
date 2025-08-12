@@ -5,21 +5,20 @@ import React, { useState } from "react";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import useScrollPosition from "@/app/_hooks/useScrollPosition";
 import { useProductContext } from "@/app/context/useProductContext";
+import { HeaderProps } from "../Header";
 
-function HeaderNav() {
+function HeaderNav({ categorie }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
-  const { categorie } = useProductContext();
-  
+
+  // const { categorie } = useProductContext();
+
   return (
-    <div className={`flex relative items-center justify-center transition-all duration-700 ease-in-out
-    ${
-            isScrolled
-              ? "ml-0"
-              : "xl:ml-[200px]"
-     }
-    max-lg:hidden`
-    }>
+    <div
+      className={`flex relative items-center justify-center transition-all duration-700 ease-in-out
+    ${isScrolled ? "ml-0" : "xl:ml-[200px]"}
+    max-lg:hidden`}
+    >
       <nav className="flex font-firaGo font-medium gap-6">
         <Link href="/#aboutUs">О нас</Link>
 
@@ -41,7 +40,11 @@ function HeaderNav() {
           <ul className="font-firaGo  gap-6 text-[#A4A4A4]">
             {categorie.map((item) => (
               <li className="font-medium" key={item.id}>
-                <Link onClick={()=> setMenuOpen((prev)=>!prev)} href={`/category/${item.id}`} className="block ">
+                <Link
+                  onClick={() => setMenuOpen((prev) => !prev)}
+                  href={`/category/${item.id}`}
+                  className="block "
+                >
                   {item.name}
                 </Link>
               </li>

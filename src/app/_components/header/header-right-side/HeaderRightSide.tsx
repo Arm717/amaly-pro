@@ -7,8 +7,9 @@ import { ICategorys } from "@/app/types";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
 import { useProductContext } from "@/app/context/useProductContext";
+import { HeaderProps } from "../Header";
 
-function HeaderRightSide() {
+function HeaderRightSide({ categorie }: HeaderProps) {
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -72,7 +73,10 @@ function HeaderRightSide() {
       </div>
 
       {openBurger && (
-        <HeaderSideBar closeAside={() => setOpenBurger((prev) => !prev)} />
+        <HeaderSideBar
+          categorie={categorie}
+          closeAside={() => setOpenBurger((prev) => !prev)}
+        />
       )}
 
       <a href="tel:+79856486681" className="max-lg:hidden">

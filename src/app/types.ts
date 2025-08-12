@@ -10,6 +10,11 @@ export interface IHomeData {
     about: IAbout;
 }
 
+export interface ISingleProductData {
+    product: IProductsItem;
+    product_related: IProductsItem[];
+}
+
 export type ICategoryData = ICategory[];
 
 
@@ -29,6 +34,10 @@ export interface IAbout {
     text:string;
 }
 
+export interface IHome {
+  homeData: IHomeData;
+}
+
 export interface IProductsItem {
     id: number;
     category_id: number;
@@ -44,7 +53,7 @@ export interface IProductsItem {
     status: number;
     created_at: string;
     updated_at: string;
-    quantity?: number;
+    
 }
 
 export interface ICategoryPageDatas {
