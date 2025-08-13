@@ -4,14 +4,11 @@ import React, { useState } from "react";
 
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import useScrollPosition from "@/app/_hooks/useScrollPosition";
-import { useProductContext } from "@/app/context/useProductContext";
 import { HeaderProps } from "../Header";
 
 function HeaderNav({ categorie }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
-
-  // const { categorie } = useProductContext();
 
   return (
     <div

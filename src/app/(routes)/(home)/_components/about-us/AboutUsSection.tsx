@@ -4,13 +4,12 @@ import React from "react";
 
 import DOMPurify from 'isomorphic-dompurify';
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import { useProductContext } from "@/app/context/useProductContext";
 import { IHome } from "@/app/types";
 
  
 
 function AboutUsSection({ homeData }: IHome) {
-  // const  {homeData} = useProductContext();
+  
   const cleanHtml = DOMPurify.sanitize(homeData.about.text);
   
 

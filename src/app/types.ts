@@ -1,6 +1,5 @@
 export type IAllCategory = Omit<ICategory,"products">[];
 
-
 export interface ICategorys {
   category: IAllCategory;
 }
@@ -10,10 +9,6 @@ export interface IHomeData {
     about: IAbout;
 }
 
-export interface ISingleProductData {
-    product: IProductsItem;
-    product_related: IProductsItem[];
-}
 
 export type ICategoryData = ICategory[];
 
@@ -56,28 +51,6 @@ export interface IProductsItem {
     quantity?: number;
 }
 
-export interface ICategoryPageDatas {
-   product: ICategoryPageProducts;
-   product_related: IProductsItem[];
-   category: Omit<ICategory,"products">;
-}
+ 
 
-export interface ICategoryPageProducts {
-    current_page: number;
-    data: IProductsItem[];
-    first_page_url: string;
-    from: number;
-    last_page_url: string;
-    links:ICategoryPageLink[];
-    next_page_url: string | null;
-    path: string;
-    per_page: number;
-    prev_page_url: string | null;
-    total: number;
-}
 
-interface ICategoryPageLink {
-    url:  string | null;
-    label: string;
-    active: boolean;
-}

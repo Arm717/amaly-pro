@@ -1,6 +1,5 @@
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Input from "@/app/_components/input/Input";
-import { useProductContext } from "@/app/context/useProductContext";
 import { IAllCategory } from "@/app/types";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -12,7 +11,7 @@ interface IHeaderAside {
 
 function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const {categorie} = useProductContext();
+  
  
   
   return (

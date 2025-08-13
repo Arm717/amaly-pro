@@ -1,4 +1,4 @@
-import { IAllCategory, ICategoryPageDatas } from "../types";
+import { ICategoryPageDatas } from "../types/types";
 
 interface IGetCategoryPage {
   id: number;

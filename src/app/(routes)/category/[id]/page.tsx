@@ -1,7 +1,7 @@
 "use server"
 import Section from "@/app/_components/section/Section";
 import CategoryContainer from "./_components/CategoryContainer";
-import { getCategoryPageData } from "@/app/services/getCategoryPageData";
+import { getCategoryPageData } from "@/app/(routes)/category/[id]/services/getCategoryPageData";
 
 interface IParams {
   id: string;

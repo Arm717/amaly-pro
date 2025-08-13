@@ -1,6 +1,5 @@
 "use client";
 import Section from "@/app/_components/section/Section";
-import { useProductContext } from "@/app/context/useProductContext";
 import { IAllCategory } from "@/app/types";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +9,7 @@ interface CategoryProps {
 }
 
 function GridCategory({ categorie }: CategoryProps) {
-  // const {categorie} = useProductContext()
+
   return (
     <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
       <Section>

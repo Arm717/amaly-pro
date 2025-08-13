@@ -1,4 +1,4 @@
-import { ISingleProductData } from "../types";
+import { ISingleProductData } from "../types/types";
 
 interface IGetSingleProductData {
   id: number;

@@ -2,14 +2,10 @@
 import React from "react";
 import ProductList from "./ProductList";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import { useProductContext } from "@/app/context/useProductContext";
 import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
 import { IHome } from "@/app/types";
 
 function ProductsSection({ homeData }:IHome) {
-
-  // const { homeData } = useProductContext();
-  
   
   return (
     <>

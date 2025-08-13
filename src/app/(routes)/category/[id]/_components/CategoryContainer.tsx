@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
 import Section from "@/app/_components/section/Section";
 import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import { ICategoryPageDatas } from "@/app/types";
+
 import ProductCard from "@/app/(routes)/(home)/_components/products/ProductCard";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
+import { ICategoryPageDatas } from "../types/types";
 
 interface ICategoryComponent {
   categoryData: ICategoryPageDatas;

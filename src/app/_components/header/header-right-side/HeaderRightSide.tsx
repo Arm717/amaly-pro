@@ -3,17 +3,18 @@ import React, { useEffect, useState } from "react";
 import Input from "../../input/Input";
 import Text from "../../text/Text";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
-import { ICategorys } from "@/app/types";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
-import { useProductContext } from "@/app/context/useProductContext";
+// import { useProductContext } from "@/app/context/useProductContext";
 import { HeaderProps } from "../Header";
+import useSearchHook from "./hooks/useSearchHook";
 
 function HeaderRightSide({ categorie }: HeaderProps) {
+  const {searchValue,setSearchValue,handleSearch} = useSearchHook();
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { basketQuantity } = useProductContext();
+  // const { basketQuantity } = useProductContext();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1524px)");
@@ -38,6 +39,8 @@ function HeaderRightSide({ categorie }: HeaderProps) {
           rightIcon="/x.png"
           altLeftIcon="Поиск"
           altRightIcon="Очистка"
+          onChange={(e) => setSearchValue(e.target.value)}
+          onLeftIconClick={() => handleSearch()}
           onRightIconClick={() => setOpenSearch(false)}
         />
       ) : (

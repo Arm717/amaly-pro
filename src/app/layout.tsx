@@ -27,13 +27,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col">
-        <ProductProvider >
+        
           <Header categorie={categorie} />
-            
+            <ProductProvider > 
               <main className="flex-1">{children}</main>
-            
+            </ProductProvider>
           <Footer />
-        </ProductProvider>
+        
       </body>
     </html>
   );

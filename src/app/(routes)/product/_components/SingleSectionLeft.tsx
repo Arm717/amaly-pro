@@ -1,7 +1,7 @@
 import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
 import Text from "@/app/_components/text/Text";
 import Title from "@/app/_components/title/Title";
-import { IProductsItem, ISingleProductData } from "@/app/types";
+import { IProductsItem } from "@/app/types";
 import Image from "next/image";
 import React from "react";
 
@@ -16,7 +16,7 @@ function SingleSectionLeft({
       <div className="grid grid-cols-1 gap-[20px] mt-6 lg:[grid-template-columns:4fr_3fr] ">
         <div>
           <Image
-          className="w-full object-cover h-full"
+          className=" object-cover w-full lg:w-[563px] lg:h-[375px]"
             src={`https://api.amalys.pro/storage/product/${singleProduct.image}`}
             width={563}
             height={375}
