@@ -53,7 +53,7 @@ export interface IProductsItem {
     status: number;
     created_at: string;
     updated_at: string;
-    
+    quantity?: number;
 }
 
 export interface ICategoryPageDatas {

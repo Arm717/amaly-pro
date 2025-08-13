@@ -11,11 +11,12 @@ function SingleSectionLeft({
   singleProduct: IProductsItem;
 }) {
   return (
-    <div>
-      <Title as="h2" value={singleProduct.name} />
-      <div className="grid gap-[20px] [grid-template-columns:4fr_3fr] mt-6">
+    <div className="font-firaGo">
+      <Title as="h2" className="text-[24px] lg:text-[32px]" value={singleProduct.name} />
+      <div className="grid grid-cols-1 gap-[20px] mt-6 lg:[grid-template-columns:4fr_3fr] ">
         <div>
           <Image
+          className="w-full object-cover h-full"
             src={`https://api.amalys.pro/storage/product/${singleProduct.image}`}
             width={563}
             height={375}
@@ -37,7 +38,7 @@ function SingleSectionLeft({
               />
             </div>
           </div>
-          <div className="flex gap-6 mb-6 ">
+          <div className="flex gap-2 mb-6 xl:gap-6 ">
             <div className="flex gap-1">
               <Title as="h5" className="text-[var(--grey)] " value={`Белки:`} />
               <div className="items-center">
