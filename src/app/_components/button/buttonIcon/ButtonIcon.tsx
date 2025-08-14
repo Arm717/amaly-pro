@@ -14,6 +14,7 @@ interface ButtonIconProps extends IButton {
   height: number;
   iconPosition?: "left" | "right";
   textSize?: TextSize;
+  alt:string;
 }
 
 function ButtonIcon({
@@ -24,8 +25,8 @@ function ButtonIcon({
   iconPosition = "left",
   textSize,
   className,
-  onClick,
-}: ButtonIconProps) {
+  alt,
+  onClick}: ButtonIconProps) {
   return (
     <Button
       onClick={onClick}
@@ -37,7 +38,7 @@ function ButtonIcon({
       {title && <Text as="span"  fontSize={textSize} value={title} />}
       <Image
         src={icon}
-        alt=""
+        alt={alt}
         width={width}
         height={height}
         unoptimized={typeof icon === "string"}

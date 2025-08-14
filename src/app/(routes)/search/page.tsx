@@ -19,7 +19,7 @@ async function SearchPage({
     console.log(searchData);
     
   return (
-    <SearchSection />
+    <SearchSection searchData={searchData} />
   )
 }
 

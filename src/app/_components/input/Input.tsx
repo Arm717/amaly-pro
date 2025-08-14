@@ -12,6 +12,7 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   altRightIcon?: string;
   onLeftIconClick?: () => void;
   onRightIconClick?: () => void;
+  onSubmit?: () => void; 
 }
 
 type Variant = "headerInput" | "section" | "headerAside";
@@ -32,11 +33,17 @@ function Input({
   altRightIcon = "icon",
   onLeftIconClick,
   onRightIconClick,
+  onSubmit,
   ...rest
 }: IInput) {
   return (
-    <div className={Input_Variant[variant]}>
-     
+    <form
+      className={Input_Variant[variant]}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit?.();
+      }}
+    >
       {leftIcon && (
         <div className="absolute inset-y-0 start-0 flex items-center ps-3">
           <ButtonIcon
@@ -45,21 +52,18 @@ function Input({
             height={24}
             variant="headerNavBtn"
             onClick={onLeftIconClick}
+            alt="searchLogo"
           />
         </div>
       )}
 
       <input
         {...rest}
-        className={`
-    w-full text-sm text-black outline-none bg-transparent
-    placeholder-black
-    ${leftIcon ? "pl-10" : ""}
-    ${rightIcon ? "pr-10" : ""}
-  `}
+        className={`w-full text-sm text-black outline-none bg-transparent placeholder-black
+          ${leftIcon ? "pl-10" : ""}
+          ${rightIcon ? "pr-10" : ""}`}
       />
 
-     
       {rightIcon && (
         <div className="absolute inset-y-0 end-0 flex items-center pe-3">
           <ButtonIcon
@@ -68,10 +72,11 @@ function Input({
             height={20}
             variant="headerNavBtn"
             onClick={onRightIconClick}
+            alt="xLogo"
           />
         </div>
       )}
-    </div>
+    </form>
   );
 }
 
