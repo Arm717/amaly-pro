@@ -1,8 +1,9 @@
 import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
-import Input from "@/app/_components/input/Input";
 import { IAllCategory } from "@/app/types";
 import Link from "next/link";
 import React, { useState } from "react";
+import useSearchHook from "../hooks/useSearchHook";
+import SearchBar from "../../header-search-bar/HeaderSearchBar";
 
 interface IHeaderAside {
   closeAside: () => void;
@@ -11,7 +12,7 @@ interface IHeaderAside {
 
 function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
   const [menuOpen, setMenuOpen] = useState(false);
-  
+  const {setSearchValue, handleSearch} = useSearchHook();
  
   
   return (
@@ -24,16 +25,22 @@ function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
             variant="headerNavBtn"
             width={20}
             height={20}
+            alt="Закрыть"
           />
         </div>
 
         <div className="flex mb-[32px] justify-center">
-          <Input
+          <SearchBar
             placeholder="Найти"
             variant="headerAside"
-            leftIcon="/searchLogo.png"
+            leftButton
             altLeftIcon="Поиск"
             altRightIcon="Очистка"
+            onChange={(e) => setSearchValue(e.target.value)}
+            onLeftIconClick={() => {
+              handleSearch();
+              closeAside();
+            }}
           />
         </div>
 
@@ -51,6 +58,7 @@ function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
               height={12}
               variant="headerNavBtn"
               iconPosition="right"
+              alt="Меню"
             />
 
             {menuOpen && (
@@ -81,6 +89,7 @@ function HeaderSideBar({categorie, closeAside}: IHeaderAside) {
           icon="/logout.png"
           variant="headerNavBtn"
           title="Выйти"
+          alt="Выйти"
         />
       </div>
 

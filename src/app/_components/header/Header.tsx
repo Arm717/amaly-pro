@@ -4,9 +4,9 @@ import React from "react";
 import HeaderNav from "./header-nav/HeaderNav";
 import HeaderRightSide from "./header-right-side/HeaderRightSide";
 import HeaderLogo from "./header-logo/HeaderLogo";
-import HeaderSection from "./header-section/HeaderSection";
 import { usePathname } from "next/navigation";
 import { IAllCategory } from "@/app/types";
+import HeroSection from "./header-section/HeaderSection";
 
 export interface HeaderProps {
   categorie: IAllCategory;
@@ -28,7 +28,7 @@ async function Header({ categorie }: HeaderProps) {
           </div>
         </div>
       </header>
-      {isHomePage && <HeaderSection />}
+      {isHomePage && <HeroSection />}
     </>
   );
 }

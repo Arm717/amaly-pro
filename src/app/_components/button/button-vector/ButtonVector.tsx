@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React, { ButtonHTMLAttributes } from 'react';
 import Text from '../../text/Text';
-import { useRouter } from 'next/navigation'; // ✅ Правильный импорт
+import { useRouter } from 'next/navigation'; 
 
 type Itext = 'p' | 'span';
 
-type VectorType = 'smallVector' | 'bigVector';
+type VectorType = 'smallVector' | 'mediumVector' | 'bigVector';
 
 interface IButtonvector extends ButtonHTMLAttributes<HTMLButtonElement> {
   as: Itext;
@@ -21,6 +21,13 @@ const buttonVectorVariant = {
     styles: 'w-[22px] h-[16px]',
     textSize: 'text-sm',
     alt: 'small vector',
+  },
+  mediumVector:{
+     src: '/mediumVevtor.png',
+    size: { width: 89, height: 31 },
+    styles: 'w-[89px] h-[31px]',
+    textSize: 'text-sm',
+    alt: 'medium vector',
   },
   bigVector: {
     src: '/bigVector.png',

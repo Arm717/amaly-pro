@@ -4,7 +4,7 @@ import Image from "next/image";
 import Title from "../../title/Title";
 import useScrollPosition from "../../../_hooks/useScrollPosition";
 
-function HeaderSection() {
+function HeroSection() {
   const isScrolled = useScrollPosition(50);
 
   return (
@@ -17,13 +17,12 @@ function HeaderSection() {
       <div className="">
         <Image
           className="
-                  
-                w-[200px] h-[332px]
-                xsm:w-[220px] xsm:h-[300px]
-                sm:w-[300px] sm:h-[400px]
-                lg:w-[430px] lg:h-[600px]
-                2xl:w-[389px] 2xl:h-[634px]
-        "
+                     w-[200px] h-[332px]
+                     xsm:w-[220px] xsm:h-[300px]
+                     sm:w-[300px] sm:h-[400px]
+                     lg:w-[430px] lg:h-[600px]
+                     2xl:w-[389px] 2xl:h-[634px]
+                    "
           src="/leftMaskImage.png"
           width={330}
           height={634}
@@ -58,9 +57,23 @@ function HeaderSection() {
 
       <div
         className="flex flex-col-reverse w-[345px] h-[500px] gap-[21px] justify-center m-auto 
-            xsm:[w-178px] xsm:h-[300px] 2xl:flex-row 2xl:w-[1090px] 2xl:h-[600px] 2xl:max-w-[1090px]"
+                    xsm:[w-178px]
+                    xsm:h-[300px]
+                    2xl:flex-row
+                    2xl:w-[1090px]
+                    2xl:h-[600px]
+                    2xl:max-w-[1090px]
+                   "
       >
-        <div className="self-end  shake-horizontal w-[200px] h-[200px] xsm:w-[150px] xsm:h-[150px]  lg:w-[300px] lg:h-auto xl:w-[512px] xl:h-[526px]">
+        <div className="self-end  shake-horizontal w-[200px] h-[200px] 
+                          xsm:w-[150px]
+                          xsm:h-[150px]
+                          lg:w-[300px] 
+                          lg:h-auto 
+                          xl:w-[512px]
+                          xl:h-[526px]
+                        "
+      >
           <Image
             className="w-full h-full object-contain"
             src="/maskSalad.png"
@@ -73,16 +86,16 @@ function HeaderSection() {
         <div className="w-full 2xl:max-w-[552px]">
           <Title
             className="
-        text-base 
-        sm:text-xl 
-        lg:text-4xl 
-        2xl:text-6xl 
-        2xl:mt-20 
-        2xl:leading-[116%] 
-        2xl:text-[78px] 
-        font-normal 
-        font-neucha
-      "
+                        text-base 
+                        sm:text-xl 
+                        lg:text-4xl 
+                        2xl:text-6xl 
+                        2xl:mt-20 
+                        2xl:leading-[116%] 
+                        2xl:text-[78px] 
+                        font-normal 
+                        font-neucha
+                      "
             as="h2"
             value="Даже ангелы иногда совершают преступления ;)"
           />
@@ -92,13 +105,13 @@ function HeaderSection() {
       <div className="">
         <Image
           className="
-            w-[110px] h-[232px]
-            xsm:w-[220px] xsm:h-[300px]
-            sm:w-[300px] sm:h-[400px]
-            lg:w-[400px] lg:h-[500px]
-            xl:w-[400px] xl:h-[600px]   
-            2xl:w-[440px] 2xl:h-[634px]
-                     "
+                      w-[110px] h-[232px]
+                      xsm:w-[220px] xsm:h-[300px]
+                      sm:w-[300px] sm:h-[400px]
+                      lg:w-[400px] lg:h-[500px]
+                      xl:w-[400px] xl:h-[600px]   
+                      2xl:w-[440px] 2xl:h-[634px]
+                    "
           src="/rightMaskImage.png"
           width={440}
           height={634}
@@ -109,4 +122,4 @@ function HeaderSection() {
   );
 }
 
-export default HeaderSection;
+export default HeroSection;

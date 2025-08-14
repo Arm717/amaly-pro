@@ -8,9 +8,11 @@ import LinkImage from "../../link-image/LinkImage";
 // import { useProductContext } from "@/app/context/useProductContext";
 import { HeaderProps } from "../Header";
 import useSearchHook from "./hooks/useSearchHook";
+import SearchBar from "../header-search-bar/HeaderSearchBar";
+import HeaderSearchBar from "../header-search-bar/HeaderSearchBar";
 
 function HeaderRightSide({ categorie }: HeaderProps) {
-  const {searchValue,setSearchValue,handleSearch} = useSearchHook();
+  const {setSearchValue, handleSearch} = useSearchHook();
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -32,11 +34,11 @@ function HeaderRightSide({ categorie }: HeaderProps) {
     "
     >
       {openSearch && !isMobile ? (
-        <Input
+        <HeaderSearchBar
           placeholder="Найти"
+          leftButton
+          rightButton
           variant="headerInput"
-          leftIcon="/searchLogo.png"
-          rightIcon="/x.png"
           altLeftIcon="Поиск"
           altRightIcon="Очистка"
           onChange={(e) => setSearchValue(e.target.value)}
@@ -50,10 +52,11 @@ function HeaderRightSide({ categorie }: HeaderProps) {
           variant="icon"
           icon="/searchLogo.png"
           onClick={() => (isMobile ? setOpenBurger(true) : setOpenSearch(true))}
+          alt="Поиск"
         />
       )}
 
-      <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png" />
+      <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png " alt="userIcon" />
 
       <LinkImage
         width={24}
@@ -72,6 +75,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
           height={24}
           variant="icon"
           icon="/burger.png"
+          alt="burger"
         />
       </div>
 
