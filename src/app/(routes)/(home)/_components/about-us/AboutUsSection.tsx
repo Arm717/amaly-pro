@@ -3,8 +3,8 @@
 import React from "react";
 
 import DOMPurify from 'isomorphic-dompurify';
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import { IHome } from "@/app/types";
+import { IHome } from "@/types/types";
+import TitleImage from "@/components/title/title-image/TitleImage";
 
  
 

@@ -1,7 +1,10 @@
-import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
-import Text from "@/app/_components/text/Text";
-import Title from "@/app/_components/title/Title";
-import { IProductsItem } from "@/app/types";
+
+
+
+import ButtonVector from "@/components/button/button-vector/ButtonVector";
+import Text from "@/components/text/Text";
+import Title from "@/components/title/Title";
+import { IProductsItem } from "@/types/types";
 import Image from "next/image";
 import React from "react";
 

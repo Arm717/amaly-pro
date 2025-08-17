@@ -1,6 +1,6 @@
 "use client";
-import Section from "@/app/_components/section/Section";
-import { IAllCategory } from "@/app/types";
+import Section from "@/components/section/Section";
+import { IAllCategory } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 

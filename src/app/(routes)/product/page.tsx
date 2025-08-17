@@ -1,7 +1,6 @@
 // app/product/page.tsx
 "use server";
 
-
 import SingleProduct from "./_components/SingleProduct";
 import { getSingleProductData } from "./services/getSingleProductData";
 

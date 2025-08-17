@@ -1,4 +1,4 @@
-import { ICategory, IProductsItem } from "@/app/types";
+import { ICategory, IProductsItem } from "@/types/types";
 
 interface ICategoryPageProducts {
     current_page: number;

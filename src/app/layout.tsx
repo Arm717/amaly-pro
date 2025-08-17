@@ -1,14 +1,14 @@
-
 import type { Metadata } from "next";
 
-import Header from "./_components/header/Header";
-import Footer from "./_components/footer/Footer";
 
-import { ProductProvider } from "./context/useProductContext";
-import { allCategory } from "./services/allCategory";
+import { Providers } from "@/providers/Providers";
 
-import "./globals.css";
-import "./reset.css";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+
+import '../styles/reset.css';
+import '../styles/global.css';
+import { allCategory } from "@/services/allCategory";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,12 +27,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col">
-        
+        <Providers>
           <Header categorie={categorie} />
-            <ProductProvider > 
               <main className="flex-1">{children}</main>
-            </ProductProvider>
           <Footer />
+        </Providers>
+          
         
       </body>
     </html>

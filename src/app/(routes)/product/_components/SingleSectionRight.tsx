@@ -1,7 +1,8 @@
-import Title from '@/app/_components/title/Title'
-import { IProductsItem } from '@/app/types';
+
+import { IProductsItem } from '@/types/types';
 import React from 'react'
 import SingleProductCard from './SingleProductCard';
+import Title from '@/components/title/Title';
 
 function SingleSectionRight({singleRelatedProducts}: {
   singleRelatedProducts: IProductsItem[]; }) {

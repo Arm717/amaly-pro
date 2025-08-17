@@ -1,6 +1,7 @@
-import Text from '@/app/_components/text/Text'
-import Title from '@/app/_components/title/Title'
-import { IProductsItem } from '@/app/types'
+import Text from '@/components/text/Text'
+import Title from '@/components/title/Title'
+
+import { IProductsItem } from '@/types/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'

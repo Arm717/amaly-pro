@@ -1,3 +1,4 @@
+"use server"
 import { ICategoryPageDatas } from "../types/types";
 
 interface IGetCategoryPage {

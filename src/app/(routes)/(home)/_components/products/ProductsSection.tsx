@@ -1,9 +1,10 @@
 "use client"
 import React from "react";
 import ProductList from "./ProductList";
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
-import { IHome } from "@/app/types";
+
+import { IHome } from "@/types/types";
+import TitleImage from "@/components/title/title-image/TitleImage";
+import ButtonVector from "@/components/button/button-vector/ButtonVector";
 
 function ProductsSection({ homeData }:IHome) {
   

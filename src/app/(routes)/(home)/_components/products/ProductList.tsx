@@ -1,7 +1,7 @@
-import { ICategory } from "@/app/types";
+import { ICategory } from "@/types/types";
 import React from "react";
 import ProductCategory from "./ProductCategory";
-import ProductCard from "./ProductCard";
+import ProductCard from "@/components/product-card/ProductCard";
 
 interface IProductList {
   productData: ICategory;

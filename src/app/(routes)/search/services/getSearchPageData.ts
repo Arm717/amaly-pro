@@ -1,3 +1,4 @@
+"use server"
 import { ISearchPageData } from '../types/types';
 
 interface ISearchParams {

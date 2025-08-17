@@ -1,6 +1,9 @@
-import Section from "@/app/_components/section/Section";
-import Text from "@/app/_components/text/Text";
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
+
+
+
+import Section from "@/components/section/Section";
+import Text from "@/components/text/Text";
+import TitleImage from "@/components/title/title-image/TitleImage";
 import Image from "next/image";
 import React from "react";
 

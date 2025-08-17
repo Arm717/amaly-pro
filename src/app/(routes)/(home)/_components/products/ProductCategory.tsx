@@ -1,5 +1,5 @@
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import { ICategory } from "@/app/types";
+import TitleImage from "@/components/title/title-image/TitleImage";
+import { ICategory } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

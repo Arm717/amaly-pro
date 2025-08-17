@@ -1,3 +1,4 @@
+"use server"
 import { ISingleProductData } from "../types/types";
 
 interface IGetSingleProductData {

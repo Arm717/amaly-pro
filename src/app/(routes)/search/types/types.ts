@@ -1,4 +1,4 @@
-import { IProductsItem } from "@/app/types";
+import { IProductsItem } from "@/types/types";
 
 export interface ISearchPageData {
         current_page: number;

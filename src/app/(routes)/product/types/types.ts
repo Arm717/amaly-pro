@@ -1,4 +1,4 @@
-import { IProductsItem } from "@/app/types";
+import { IProductsItem } from "@/types/types";
 
 export interface ISingleProductData {
     product: IProductsItem;

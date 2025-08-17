@@ -1,3 +1,4 @@
+"use server"
 import React from 'react'
 import getSearchPageData from './services/getSearchPageData';
 import SearchSection from './_components/SearchSection';

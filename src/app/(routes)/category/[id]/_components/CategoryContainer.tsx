@@ -1,15 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import ButtonIcon from "@/app/_components/button/buttonIcon/ButtonIcon";
-import Section from "@/app/_components/section/Section";
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
 
-import ProductCard from "@/app/(routes)/(home)/_components/products/ProductCard";
+
+
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import ButtonVector from "@/app/_components/button/button-vector/ButtonVector";
 import { ICategoryPageDatas } from "../types/types";
+import TitleImage from "@/components/title/title-image/TitleImage";
+import ButtonIcon from "@/components/button/buttonIcon/ButtonIcon";
+import ProductCard from "@/components/product-card/ProductCard";
+import ButtonVector from "@/components/button/button-vector/ButtonVector";
 
 interface ICategoryComponent {
   categoryData: ICategoryPageDatas;
@@ -23,10 +24,10 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
   const router = useRouter();
 
   const sortBy = [
-    { id: 1, sortby: "max_price", name: "По возрастанию цены" },
-    { id: 2, sortby: "min_price", name: "По убыванию цены" },
-    { id: 3, sortby: "max_calories", name: "По возрастанию калорийности" },
-    { id: 4, sortby: "min_calories", name: "По убыванию калорийности" },
+    { id: 1, sortby: "min_price", name: "По возрастанию цены" },
+    { id: 2, sortby: "max_price", name: "По убыванию цены" },
+    { id: 3, sortby: "min_calories", name: "По возрастанию калорийности" },
+    { id: 4, sortby: "max_calories", name: "По убыванию калорийности" },
   ];
 
   const handleSortChange = (sort: string) => {
@@ -56,6 +57,7 @@ function CategoryContainer({ categoryData }: ICategoryComponent) {
             title={`Сортировать : ${sortBarName}`}
             onClick={() => setMenuOpen((prev) => !prev)}
             iconPosition="right"
+            alt="menu"
           />
           {menuOpen && (
             <div className="absolute top-full  mt-2 px-4 py-3 bg-white border-2 border-yellow-400 rounded w-full max-w-xs shadow-lg z-30 lg:top-full lg:left-0">

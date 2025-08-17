@@ -1,10 +1,11 @@
-import LinkImage from "@/app/_components/link-image/LinkImage";
-import Section from "@/app/_components/section/Section";
-import Text from "@/app/_components/text/Text";
-import TextImage from "@/app/_components/text/text-image/TextImage";
-import TitleImage from "@/app/_components/title/title-image/TitleImage";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import LinkImage from "@/components/link-image/LinkImage";
+import Section from "@/components/section/Section";
+import Text from "@/components/text/Text";
+import TextImage from "@/components/text/text-image/TextImage";
+import TitleImage from "@/components/title/title-image/TitleImage";
+
 
 function ContactPage() {
   return (

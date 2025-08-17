@@ -1,10 +1,10 @@
 "use client";
-import Section from "@/app/_components/section/Section";
 
 import React from "react";
 import SingleSectionLeft from "./SingleSectionLeft";
 import SingleSectionRight from "./SingleSectionRight";
 import { ISingleProductData } from "../types/types";
+import Section from "@/components/section/Section";
 
 function SingleProduct({
   singleProductData,

@@ -1,8 +1,9 @@
 "use server";
-import Section from "./_components/section/Section";
+
 import ProductsSection from "./(routes)/(home)/_components/products/ProductsSection";
 import AboutUsSection from "./(routes)/(home)/_components/about-us/AboutUsSection";
-import { getHomeData } from "./services/getHomeData";
+import { getHomeData } from "@/services/getHomeData";
+import Section from "@/components/section/Section";
 
 export default async function Home() {
     const homeData = await getHomeData();
