@@ -1,7 +1,7 @@
 import { IAllCategory } from "@/types/types";
 import Link from "next/link";
 import React, { useState } from "react";
-import useSearchHook from "../hooks/useSearchHook";
+import useSearchHook from "../../../../hooks/useSearchHook";
 import SearchBar from "../../header-search-bar/HeaderSearchBar";
 import ButtonIcon from "@/components/button/buttonIcon/ButtonIcon";
 

@@ -4,6 +4,7 @@
 import ButtonVector from "@/components/button/button-vector/ButtonVector";
 import Text from "@/components/text/Text";
 import Title from "@/components/title/Title";
+import { useProductContext } from "@/context/useProductContext";
 import { IProductsItem } from "@/types/types";
 import Image from "next/image";
 import React from "react";
@@ -13,6 +14,8 @@ function SingleSectionLeft({
 }: {
   singleProduct: IProductsItem;
 }) {
+  const { addToBasket } = useProductContext();
+  
   return (
     <div className="font-firaGo">
       <Title as="h2" className="text-[24px] lg:text-[32px]" value={singleProduct.name} />
@@ -127,6 +130,13 @@ function SingleSectionLeft({
                 singleProduct.status ? "В корзину" : "Будет Позже"
               }
               variant="bigVector"
+              onClick={(e)=>{
+                if (singleProduct.status) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  addToBasket(singleProduct)
+                }
+              }}
             />
           </div>
         </div>

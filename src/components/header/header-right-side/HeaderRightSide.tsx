@@ -7,7 +7,7 @@ import HeaderSideBar from "./header-side-bar/HeaderSideBar";
 import LinkImage from "../../link-image/LinkImage";
 
 import { HeaderProps } from "../Header";
-import useSearchHook from "./hooks/useSearchHook";
+import useSearchHook from "../../../hooks/useSearchHook";
 
 import HeaderSearchBar from "../header-search-bar/HeaderSearchBar";
 import { useHasMounted } from "@/hooks/useHasMounted";

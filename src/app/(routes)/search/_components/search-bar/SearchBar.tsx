@@ -40,8 +40,9 @@ export default function SearchBar({
       <Input className="px-[32px] " {...rest} />
 
       <div className="hidden lg:absolute lg:inset-y-0 lg:end-0 lg:flex lg:items-center lg:pe-3 lg:my-0">
-        <ButtonVector as="span" variant="mediumVector" text="Поиск" />
+        <ButtonVector onClick={onRightIconClick} as="span" variant="mediumVector" text="Поиск" />
       </div>
+      
     </form>
   );
 }

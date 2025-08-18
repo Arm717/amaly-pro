@@ -27,7 +27,7 @@ function ProductCard({ product }: IProductCard) {
          "
       >
         <div className="px-[10px] pt-[10px] h-full">
-          <div className="mb-[12px] overflow-hidden rounded-[12px] group max-h-[204px]">
+          <div className=" mb-[12px] max-h-full  overflow-hidden rounded-[12px] group lg:max-h-[204px]">  
             <Image
               width={306}
               height={204}

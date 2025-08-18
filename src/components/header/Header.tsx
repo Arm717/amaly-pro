@@ -6,7 +6,7 @@ import HeaderRightSide from "./header-right-side/HeaderRightSide";
 import HeaderLogo from "./header-logo/HeaderLogo";
 import { usePathname } from "next/navigation";
 import { IAllCategory } from "@/types/types";
-import HeroSection from "./header-section/HeaderSection";
+import HeroSection from "./hero-section/HeroSection";
 
 export interface HeaderProps {
   categorie: IAllCategory;
