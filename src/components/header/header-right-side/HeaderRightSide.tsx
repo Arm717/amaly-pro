@@ -12,14 +12,16 @@ import useSearchHook from "../../../hooks/useSearchHook";
 import HeaderSearchBar from "../header-search-bar/HeaderSearchBar";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { useProductContext } from "@/context/useProductContext";
+import { useRouter } from "next/navigation";
 
 function HeaderRightSide({ categorie }: HeaderProps) {
-  const {setSearchValue, handleSearch} = useSearchHook();
+  const { setSearchValue, searchValue, handleSearch } = useSearchHook();
   const [openSearch, setOpenSearch] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const mounted = useHasMounted();
   const { basketQuantity } = useProductContext();
+  const router = useRouter()
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1524px)");
@@ -39,6 +41,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
       {openSearch && !isMobile ? (
         <HeaderSearchBar
           placeholder="Найти"
+          defaultValue={searchValue}
           leftButton
           rightButton
           variant="headerInput"
@@ -59,7 +62,14 @@ function HeaderRightSide({ categorie }: HeaderProps) {
         />
       )}
 
-      <ButtonIcon width={24} height={24} variant="icon" icon="/userIcon.png " alt="userIcon" />
+      <ButtonIcon
+        width={24}
+        height={24}
+        variant="icon"
+        icon="/userIcon.png "
+        onClick={()=>router.push("/login")}
+        alt="userIcon"
+      />
 
       <LinkImage
         width={24}

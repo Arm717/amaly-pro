@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 type Itext = 'p' | 'span';
 
-type VectorType = 'smallVector' | 'mediumVector' | 'bigVector';
+type VectorType = 'smallVector' | 'mediumVector' | 'bigVector' | 'smallFormVector' | 'bigFormVector';
 
 interface IButtonvector extends ButtonHTMLAttributes<HTMLButtonElement> {
   as: Itext;
@@ -36,6 +36,21 @@ const buttonVectorVariant = {
     textSize: 'text-sm',
     alt: 'big vector',
   },
+  smallFormVector: {
+    src: '/bigVector.png',
+    size: { width: 188, height: 32 },
+    styles: 'w-[188px] h-[32px]',
+    textSize: 'text-sm',
+    alt: 'small form vector',
+  },
+  bigFormVector: {
+    src: '/bigVector.png',
+    size: { width: 194, height: 42 },
+    styles: 'w-[194px] h-[42px]',
+    textSize: 'text-sm',
+    alt: 'big form vector',
+  },
+
 };
 
 function ButtonVector({

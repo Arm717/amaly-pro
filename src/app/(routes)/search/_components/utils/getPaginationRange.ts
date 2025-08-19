@@ -1,8 +1,8 @@
 function getPaginationRange(current: number, total: number): (number | string)[] {
-  const delta = 2; // сколько показывать вокруг текущей
+  const delta = 2; // inchqan cuyc tal nshvaci aranqum
   const range: (number | string)[] = [];
 
-  // если страниц мало — показываем все
+  // ete ejery qicha cuyc tal bolory 
   if (total <= 7) {
     for (let i = 1; i <= total; i++) {
       range.push(i);
@@ -10,10 +10,10 @@ function getPaginationRange(current: number, total: number): (number | string)[]
     return range;
   }
 
-  // всегда первая
+  // arajin ej
   range.push(1);
 
-  // блок в начале
+  // ketery skzbum
   if (current <= 3) {
     for (let i = 2; i <= 4; i++) {
       range.push(i);
@@ -23,7 +23,7 @@ function getPaginationRange(current: number, total: number): (number | string)[]
     return range;
   }
 
-  // блок в конце
+  // ketery verjum
   if (current >= total - 2) {
     range.push("...");
     for (let i = total - 3; i < total; i++) {
@@ -33,13 +33,15 @@ function getPaginationRange(current: number, total: number): (number | string)[]
     return range;
   }
 
-  // середина
+  //mejtexi hamar
   range.push("...");
   for (let i = current - 1; i <= current + 1; i++) {
     range.push(i);
   }
   range.push("...");
   range.push(total);
+  console.log(range);
+  
 
   return range;
 }
