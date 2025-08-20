@@ -18,14 +18,13 @@ function SearchSection({ searchData }: ISearchSection) {
   const currentPage = Number(searchData.current_page);
   const totalPages = Number(searchData.last_page);
   const pages = getPaginationRange(currentPage, totalPages);
-  const { searchValue, setSearchValue, handleSearch } = useSearchHook();
+  const {  setSearchValue, handleSearch } = useSearchHook();
 
   return (
     <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
       <Section className="mx-3">
         <div className="mt-[48px] mb-[11px] lg:mt-[83px] lg:mb-[64px] ">
           <SearchBar
-            defaultValue={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             onLeftIconClick={() => handleSearch()}
             onRightIconClick={() => handleSearch()}
