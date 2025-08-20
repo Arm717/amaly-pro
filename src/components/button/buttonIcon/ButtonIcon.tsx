@@ -15,6 +15,7 @@ interface ButtonIconProps extends IButton {
   iconPosition?: "left" | "right";
   textSize?: TextSize;
   alt:string;
+  type:'reset'| 'submit' | 'button';
 }
 
 function ButtonIcon({
@@ -26,9 +27,11 @@ function ButtonIcon({
   textSize,
   className,
   alt,
+  type,
   onClick}: ButtonIconProps) {
   return (
     <Button
+      type={type}
       onClick={onClick}
       variant="headerNavBtn"
       className={`flex items-center gap-2 ${

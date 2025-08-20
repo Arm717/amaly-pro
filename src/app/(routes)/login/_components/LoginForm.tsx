@@ -1,40 +1,50 @@
-"use client"
-import ButtonVector from '@/components/button/button-vector/ButtonVector'
-import FormInput from '@/components/form-input/FormInput'
-import React, { useEffect, useState } from 'react'
-import { ILoginForm } from '../types/types'
-
+"use client";
+import ButtonVector from "@/components/button/button-vector/ButtonVector";
+import FormInput from "@/components/form-input/FormInput";
+import React, { useState, useTransition } from "react";
+import Link from "next/link";
+import { loginAction } from "../actions/loginAction";
+import { ILoginActionData } from "../actions/types/types";
+import { redirect } from "next/navigation";
 
 function LoginForm() {
-    const [loginForm, setLoginForm] = useState<ILoginForm>({
-        email:'',
-        password:''
-    })
-
-    const onChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
-      const name = event.target.name;
-      const value = event.target.value;
-      setLoginForm(data=>({...data,[name]:value}));
-    }
-
-    useEffect(()=> {
-      console.log(loginForm);
-      
-    },[loginForm])
-
+  
+  const [isPending, startTransition] = useTransition();
 
   return (
-    <form onSubmit={(e)=>{
-      e.preventDefault()
-      console.log(loginForm);
-    }}>
-        <FormInput onChange={onChangeHandler}  type="email" name='email'  label="Эл. Адрес" variantForm="custom" />
-        <FormInput onChange={onChangeHandler} type="password" name='password' label="Пароль" variantForm="password" />
-        <div className="flex w-full justify-center mt-[24px]">
-          <ButtonVector type="submit" as="span" text="Войти" variant="bigFormVector" />
-        </div>
-      </form>
-  )
+    <form
+      action={(formData) => {
+        startTransition(async () => {
+          const res = await loginAction(formData);
+          console.log("Ответ API:", res.data);
+          redirect('/')
+        });
+      }}
+    >
+      <FormInput type="email" name="email" label="Эл. Адрес" variantForm="custom"  />
+      <FormInput type="password" name="password" label="Пароль" variantForm="password"  />
+
+      <div className="flex w-full justify-center mt-[24px] mb-3">
+        <ButtonVector
+          type="submit"
+          as="span"
+          text={isPending ? "Входим..." : "Войти"}
+          variant="bigFormVector"
+        />
+      </div>
+
+      <div className="flex justify-between">
+        <Link className="text-[var(--grey)]" href="/recover-password">
+          Забыли пароль?
+        </Link>
+        <Link className="text-[var(--grey)]" href="/register">
+          Зарегистрироваться
+        </Link>
+      </div>
+
+      
+    </form>
+  );
 }
 
-export default LoginForm
+export default LoginForm;
