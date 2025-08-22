@@ -21,9 +21,7 @@ export default async function SingleProductPage({
   }
 
   const singleProductData = await getSingleProductData({ id });
-  console.log("SingleProductPage", singleProductData);
   
-
   return (
     <SingleProduct singleProductData={singleProductData} />
   );

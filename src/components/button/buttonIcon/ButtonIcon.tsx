@@ -15,7 +15,7 @@ interface ButtonIconProps extends IButton {
   iconPosition?: "left" | "right";
   textSize?: TextSize;
   alt:string;
-  type:'reset'| 'submit' | 'button';
+  type?:'reset'| 'submit' | 'button';
 }
 
 function ButtonIcon({

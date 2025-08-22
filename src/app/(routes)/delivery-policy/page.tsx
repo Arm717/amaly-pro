@@ -1,6 +1,7 @@
 
 
 
+import CenteredContainer from "@/components/centered-container/CenteredContainer";
 import Section from "@/components/section/Section";
 import Text from "@/components/text/Text";
 import TitleImage from "@/components/title/title-image/TitleImage";
@@ -9,7 +10,7 @@ import React from "react";
 
 function DeliveryPolicyPage() {
   return (
-    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center ">
+    <CenteredContainer>
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-[97px] px-[20px] mb-[40px] lg:mt-[155px] lg:mb-[92px] ">
           <div className="border-2 border-[var(--yellow)] p-6">
@@ -50,7 +51,7 @@ function DeliveryPolicyPage() {
           </div>
         </div>
       </Section>
-    </div>
+    </CenteredContainer>
   );
 }
 

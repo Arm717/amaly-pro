@@ -5,11 +5,12 @@ import Section from "@/components/section/Section";
 import Text from "@/components/text/Text";
 import TextImage from "@/components/text/text-image/TextImage";
 import TitleImage from "@/components/title/title-image/TitleImage";
+import CenteredContainer from "@/components/centered-container/CenteredContainer";
 
 
 function ContactPage() {
   return (
-    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
+    <CenteredContainer>
       <Section>
         <div className="flex flex-col justify-center mx-[16px] pt-[40px]">
           <TitleImage as="h1" cloudVariant="oneCloud" value="Контакты" />
@@ -87,7 +88,7 @@ function ContactPage() {
           </div>
         </div>
       </Section>
-    </div>
+    </CenteredContainer>
   );
 }
 

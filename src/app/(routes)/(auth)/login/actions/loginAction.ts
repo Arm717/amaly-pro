@@ -1,26 +1,25 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { IAllData, ILoginActionData } from "./types/types";
-import { redirect } from "next/navigation";
+import {
+  ILoginActionData
+} from "./types/types";
 
-export async function loginAction(
-  formData: FormData
-): Promise<ILoginActionData> {
+export async function loginAction(formData: FormData): Promise<ILoginActionData> {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+
+  if (!email || !password) {
+    return { success: false, message: "Email и пароль обязательны." };
+  }
 
   const reqData = { form: { email, password } };
 
   try {
     const res = await fetch("https://api.amalys.pro/api/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reqData),
-
       cache: "no-store",
     });
 
@@ -29,7 +28,9 @@ export async function loginAction(
       return { success: false, message: `Ошибка API: ${res.status} ${text}` };
     }
 
-    const data: IAllData = await res.json();
+    const data = await res.json();
+
+    // 🍪 сохраняем токен
     cookies().set("userToken", data.access_token.token, {
       httpOnly: true,
       secure: true,
@@ -37,10 +38,15 @@ export async function loginAction(
       path: "/",
       maxAge: 60 * 60 * 24 * 7, // 7 дней
     });
-    console.log(data, "========data");
-    
 
-    return { success: true, message: "Успешный вход", data };
+
+
+    return {
+      success: true,
+      message: "Успешный вход",
+      access_token: data.access_token,
+      data: data.data,
+    };
   } catch (err) {
     return { success: false, message: "Ошибка соединения с сервером" };
   }

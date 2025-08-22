@@ -2,6 +2,7 @@
 import Section from "@/components/section/Section";
 import CategoryContainer from "./_components/CategoryContainer";
 import { getCategoryPageData } from "@/app/(routes)/category/[id]/services/getCategoryPageData";
+import CenteredContainer from "@/components/centered-container/CenteredContainer";
 
 interface IParams {
   id: string;
@@ -20,11 +21,11 @@ async function CategoryPage({
   const categoryData = await getCategoryPageData({ id, sort });
 
   return (
-    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
+    <CenteredContainer>
       <Section>
         <CategoryContainer categoryData={categoryData} />
       </Section>
-    </div>
+    </CenteredContainer>
   );
 }
 

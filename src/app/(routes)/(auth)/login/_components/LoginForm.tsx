@@ -6,23 +6,44 @@ import Link from "next/link";
 import { loginAction } from "../actions/loginAction";
 import { ILoginActionData } from "../actions/types/types";
 import { redirect } from "next/navigation";
+import { useAuth } from "@/context/useAuthContext";
 
 function LoginForm() {
-  
   const [isPending, startTransition] = useTransition();
-
+  const [error, setError] = useState<string | null>(null);
+  const { login } = useAuth();
+  
   return (
     <form
       action={(formData) => {
         startTransition(async () => {
           const res = await loginAction(formData);
-          console.log("Ответ API:", res.data);
-          redirect('/')
+          
+          if (res.success) {
+            login(res.data)
+            redirect("/personal-information");
+          } else {
+            setError(res.message);
+
+            console.error("Login failed:", res.message);
+          }
         });
       }}
     >
-      <FormInput type="email" name="email" label="Эл. Адрес" variantForm="custom"  />
-      <FormInput type="password" name="password" label="Пароль" variantForm="password"  />
+      <FormInput
+        type="email"
+        name="email"
+        label="Эл. Адрес"
+        variantForm="custom"
+      />
+      <FormInput
+        type="password"
+        name="password"
+        label="Пароль"
+        variantForm="password"
+      />
+
+      {error && <div className="text-red-500 mt-2 text-center">{error}</div>}
 
       <div className="flex w-full justify-center mt-[24px] mb-3">
         <ButtonVector
@@ -41,8 +62,6 @@ function LoginForm() {
           Зарегистрироваться
         </Link>
       </div>
-
-      
     </form>
   );
 }

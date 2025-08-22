@@ -17,7 +17,7 @@ async function SearchPage({
     const searchQuery = query || '';
     const pageNumber = Number(page) || 1;
     const searchData = await getSearchPageData({ query:searchQuery, page: pageNumber });
-    console.log(searchData);
+ 
   return (
     <SearchSection searchData={searchData} />
   )

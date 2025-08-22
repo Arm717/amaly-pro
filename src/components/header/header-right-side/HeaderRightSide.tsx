@@ -13,6 +13,8 @@ import HeaderSearchBar from "../header-search-bar/HeaderSearchBar";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { useProductContext } from "@/context/useProductContext";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/useAuthContext";
+import { logoutAction } from "@/context/action/logoutAction";
 
 function HeaderRightSide({ categorie }: HeaderProps) {
   const { setSearchValue, searchValue, handleSearch } = useSearchHook();
@@ -21,8 +23,10 @@ function HeaderRightSide({ categorie }: HeaderProps) {
   const [isMobile, setIsMobile] = useState(false);
   const mounted = useHasMounted();
   const { basketQuantity } = useProductContext();
-  const router = useRouter()
-
+  const router = useRouter();
+  const { isAuthenticated, logout } = useAuth();
+  console.log(isAuthenticated);
+  
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1524px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
@@ -35,7 +39,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
 
   return (
     <div
-      className="flex items-center gap-10 justify-end w-[690px]  max-2xl:w-[258px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
+      className="flex items-center gap-10 justify-end w-[750px]  max-2xl:w-[300px]  max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3
     "
     >
       {openSearch && !isMobile ? (
@@ -53,6 +57,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
         />
       ) : (
         <ButtonIcon
+        
           width={24}
           height={24}
           variant="icon"
@@ -66,10 +71,24 @@ function HeaderRightSide({ categorie }: HeaderProps) {
         width={24}
         height={24}
         variant="icon"
-        icon="/userIcon.png "
-        onClick={()=>router.push("/login")}
+        icon="/userIcon.png"
+        onClick={() => router.push(isAuthenticated ? "/personal-information" : "/login")}
         alt="userIcon"
       />
+
+     {isAuthenticated && (
+      <ButtonIcon
+        width={22}
+        height={22}
+        variant="icon"
+        icon="/logout.png"
+        onClick={async () => {
+          await logoutAction();
+          logout();
+        }}
+        alt="userIcon"
+      />
+     )} 
 
       <LinkImage
         width={24}

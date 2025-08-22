@@ -9,6 +9,7 @@ import useSearchHook from "@/hooks/useSearchHook";
 import Button from "@/components/button/Button";
 import Text from "@/components/text/Text";
 import getPaginationRange from "./utils/getPaginationRange";
+import CenteredContainer from "@/components/centered-container/CenteredContainer";
 
 interface ISearchSection {
   searchData: ISearchPageData;
@@ -21,7 +22,7 @@ function SearchSection({ searchData }: ISearchSection) {
   const {  setSearchValue, handleSearch } = useSearchHook();
 
   return (
-    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
+    <CenteredContainer>
       <Section className="mx-3">
         <div className="mt-[48px] mb-[11px] lg:mt-[83px] lg:mb-[64px] ">
           <SearchBar
@@ -68,7 +69,7 @@ function SearchSection({ searchData }: ISearchSection) {
           })}
         </div>
       </Section>
-    </div>
+    </CenteredContainer>
   );
 }
 
