@@ -17,7 +17,7 @@ function LoginForm() {
     <form
       action={(formData) => {
         startTransition(async () => {
-          const res = await loginAction(formData);
+          const res: ILoginActionData = await loginAction(formData);
           
           if (res.success) {
             login(res.data)

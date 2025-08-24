@@ -40,7 +40,7 @@ function getPaginationRange(current: number, total: number): (number | string)[]
   }
   range.push("...");
   range.push(total);
-  console.log(range);
+  
   
 
   return range;

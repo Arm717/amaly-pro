@@ -1,14 +1,29 @@
 import ButtonVector from '@/components/button/button-vector/ButtonVector';
 import FormInput from '@/components/form-input/FormInput';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import React, { useState, useTransition } from 'react'
+import { IRecoverPasswordAction } from '../actions/types/types';
+import { RecoverPasswordAction } from '../actions/RecoverPasswordAction';
 
 function RecoverForm() {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   
   return (
-    <form
+    <form action={(formData) => {
+            startTransition(async () => {
+              const res: IRecoverPasswordAction = await RecoverPasswordAction(formData);
+              
+              if (res.success) {
+                redirect("/login");
+              } else {
+                setError(res.message);
+    
+                console.error("Recover Password failed:", res.message);
+              }
+            });
+          }}
     >
       <FormInput
         type="email"
@@ -17,7 +32,6 @@ function RecoverForm() {
         variantForm="custom"
       />
      
-
       {error && <div className="text-red-500 mt-2 text-center">{error}</div>}
 
       <div className="flex flex-col gap-2 w-full items-center mt-[24px] mb-3">

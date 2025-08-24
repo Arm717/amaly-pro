@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Input from "../../input/Input";
 import Text from "../../text/Text";
 import ButtonIcon from "../../button/buttonIcon/ButtonIcon";
 import HeaderSideBar from "./header-side-bar/HeaderSideBar";
@@ -25,17 +24,22 @@ function HeaderRightSide({ categorie }: HeaderProps) {
   const { basketQuantity } = useProductContext();
   const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
-  console.log(isAuthenticated);
-  
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1524px)");
-    const handleResize = () => setIsMobile(mediaQuery.matches);
 
-    handleResize();
-    mediaQuery.addEventListener("change", handleResize);
+useEffect(() => {
+  if (!mounted) return;
+  const mediaQuery = window.matchMedia("(max-width: 1524px)");
+  const handleResize = () => setIsMobile(mediaQuery.matches);
 
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }, []);
+  handleResize();
+  mediaQuery.addEventListener("change", handleResize);
+
+  return () => mediaQuery.removeEventListener("change", handleResize);
+}, [mounted]);
+
+if (!mounted) {
+  return <div className="flex items-center gap-10 justify-end w-[750px] max-2xl:w-[300px] max-2xl:gap-5 max-lg:w-[100px] max-sm:gap-3" />;
+}
+
 
   return (
     <div
@@ -76,7 +80,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
         alt="userIcon"
       />
 
-     {isAuthenticated && (
+     {isAuthenticated && !isMobile && (
       <ButtonIcon
         width={22}
         height={22}
@@ -111,7 +115,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
         />
       </div>
 
-      {openBurger && (
+      {openBurger &&  (
         <HeaderSideBar
           categorie={categorie}
           closeAside={() => setOpenBurger((prev) => !prev)}

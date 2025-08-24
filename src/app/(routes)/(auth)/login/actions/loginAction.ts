@@ -30,7 +30,6 @@ export async function loginAction(formData: FormData): Promise<ILoginActionData>
 
     const data = await res.json();
 
-    // 🍪 сохраняем токен
     cookies().set("userToken", data.access_token.token, {
       httpOnly: true,
       secure: true,

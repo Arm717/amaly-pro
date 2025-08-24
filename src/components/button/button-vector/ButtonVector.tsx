@@ -47,7 +47,7 @@ const buttonVectorVariant = {
     src: '/bigVector.png',
     size: { width: 194, height: 42 },
     styles: 'w-[194px] h-[42px]',
-    textSize: 'text-sm',
+    textSize: 'text-base font-semibold',
     alt: 'big form vector',
   },
 
@@ -84,7 +84,7 @@ function ButtonVector({
         <Text
           as={as}
           value={text}
-          className={`absolute inset-0 flex items-center justify-center ${buttonVectorVariant[variant].textSize}`}
+          className={`absolute inset-0 flex  items-center justify-center ${buttonVectorVariant[variant].textSize}`}
         />
       )}
     </button>

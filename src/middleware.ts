@@ -1,4 +1,3 @@
-// middleware.ts (должен лежать в корне проекта, рядом с package.json)
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -17,8 +16,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // если пользователь залогинен и идёт на /login
-  if (pathname === "/login" && token) {
+  // если пользователь залогинен и идёт на /login | /recover-password | /register
+  if (
+    token &&
+    (pathname === "/login" ||
+      pathname === "/recover-password" ||
+      pathname === "/register")
+  ) {
     return NextResponse.redirect(
       new URL("/personal-information", request.url)
     );
@@ -30,5 +34,10 @@ export function middleware(request: NextRequest) {
 
 // 🔧 указываем пути, где должен работать middleware
 export const config = {
-  matcher: ["/personal-information/:path*", "/login"],
+  matcher: [
+    "/personal-information/:path*",
+    "/login",
+    "/register",
+    "/recover-password",
+  ],
 };
