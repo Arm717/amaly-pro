@@ -17,7 +17,6 @@ interface IProductCard {
 
 function ProductCard({ product }: IProductCard) {
   const { addToBasket } = useProductContext();
-  
   return (
     <>
       <Link
@@ -95,7 +94,7 @@ function ProductCard({ product }: IProductCard) {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  addToBasket(product)
+                  addToBasket({id:product.id})
                 }}
               />
             ) : (

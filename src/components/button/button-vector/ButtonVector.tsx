@@ -1,70 +1,84 @@
-import Image from 'next/image';
-import React, { ButtonHTMLAttributes } from 'react';
-import Text from '../../text/Text';
-import { useRouter } from 'next/navigation'; 
+import Image from "next/image";
+import React, { ButtonHTMLAttributes } from "react";
+import Text from "../../text/Text";
+import { useRouter } from "next/navigation";
 
-type Itext = 'p' | 'span';
+type Itext = "p" | "span";
 
-type VectorType = 'smallVector' | 'mediumVector' | 'bigVector' | 'smallFormVector' | 'bigFormVector';
+type VectorType =
+  | "smallVector"
+  | "mediumVector"
+  | "bigVector"
+  | "smallFormVector"
+  | "bigFormVector"
+  | "basketDecrementVector"
+  | "basketIncrementVector";
 
 interface IButtonvector extends ButtonHTMLAttributes<HTMLButtonElement> {
   as: Itext;
   variant: VectorType;
-  text: string;
+  text?: string;
   path?: string;
 }
 
 const buttonVectorVariant = {
   smallVector: {
-    src: '/smallVector.png',
+    src: "/smallVector.png",
     size: { width: 22, height: 16 },
-    styles: 'w-[22px] h-[16px]',
-    textSize: 'text-sm',
-    alt: 'small vector',
+    styles: "w-[22px] h-[16px]",
+    textSize: "text-sm",
+    alt: "small vector",
   },
-  mediumVector:{
-     src: '/mediumVevtor.png',
+  mediumVector: {
+    src: "/mediumVevtor.png",
     size: { width: 89, height: 31 },
-    styles: 'w-[89px] h-[31px]',
-    textSize: 'text-sm',
-    alt: 'medium vector',
+    styles: "w-[89px] h-[31px]",
+    textSize: "text-sm",
+    alt: "medium vector",
   },
   bigVector: {
-    src: '/bigVector.png',
+    src: "/bigVector.png",
     size: { width: 131, height: 32 },
-    styles: 'w-[131px] h-[32px]',
-    textSize: 'text-sm',
-    alt: 'big vector',
+    styles: "w-[131px] h-[32px]",
+    textSize: "text-sm",
+    alt: "big vector",
   },
   smallFormVector: {
-    src: '/bigVector.png',
+    src: "/bigVector.png",
     size: { width: 188, height: 32 },
-    styles: 'w-[188px] h-[32px]',
-    textSize: 'text-sm',
-    alt: 'small form vector',
+    styles: "w-[188px] h-[32px]",
+    textSize: "text-sm",
+    alt: "small form vector",
   },
   bigFormVector: {
-    src: '/bigVector.png',
+    src: "/bigVector.png",
     size: { width: 194, height: 42 },
-    styles: 'w-[194px] h-[42px]',
-    textSize: 'text-base font-semibold',
-    alt: 'big form vector',
+    styles: "w-[194px] h-[42px]",
+    textSize: "text-base font-semibold",
+    alt: "big form vector",
   },
-
+  basketDecrementVector: {
+    src: "/decrementVector.png",
+    size: { width: 33, height: 24 },
+    styles: "w-[33px] h-[24px]",
+    textSize: "text-base font-semibold",
+    alt: "basketDecrementVector",
+  },
+  basketIncrementVector: {
+    src: "/incrementVector.png",
+    size: { width: 33, height: 24 },
+    styles: "w-[33px] h-[24px]",
+    textSize: "text-base font-semibold",
+    alt: "basketIncrementVector",
+  },
 };
 
-function ButtonVector({
-  as,
-  variant,
-  text,
-  path ,
-  ...rest
-}: IButtonvector) {
-  const router = useRouter(); 
+function ButtonVector({ as, variant, text, path, ...rest }: IButtonvector) {
+  const router = useRouter();
 
   const handleClick = () => {
-    if (!path) return; 
-    router.push(path); 
+    if (!path) return;
+    router.push(path);
   };
 
   return (

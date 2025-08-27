@@ -1,8 +1,8 @@
 import React from 'react'
 
-function CenteredContainer({ children }: { children: React.ReactNode }) {
+function CenteredContainer({ children, className }: { children: React.ReactNode, className?:string }) {
   return (
-    <div className="flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center">
+    <div className={`flex min-h-[calc(100vh-450px)] flex-grow w-full justify-center ${className}`}>
       {children}
     </div>
   )

@@ -7,6 +7,7 @@ import Text from "../../text/Text";
 
 type TextSize = "sm" | "base" | "md" | "lg" | "xlg";
 
+
 interface ButtonIconProps extends IButton {
   icon: StaticImageData | string;
   title?: string;

@@ -29,7 +29,7 @@ export default async function RootLayout({
       <body className="flex flex-col">
         <Providers>
           <Header categorie={categorie} />
-              <main className="flex-1">{children}</main>
+              <main className="flex flex-1">{children}</main>
           <Footer />
         </Providers>
           

@@ -11,7 +11,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import useProducts from "./hooks/useProducts";
 
 interface ProductContextType {
-  products: IProductsItem[];
+  products: IProductBasket[];
   basketQuantity: number;
   addToBasket: (product: IProductBasket) => void;
   decreaseQuantity: (product: IProductBasket) => void;
@@ -38,12 +38,12 @@ export const ProductProvider = ({
 
 
   const [basketQuantity, setBasketQuantity] = useLocalStorage<number>(
-    "basket",
+    "basket_count",
     0
   );
 
  useEffect(() => {
-  const productsCount = products.reduce((acc, item) => acc + (item.quantity ?? 1), 0);
+  const productsCount = products.reduce((acc, item) => acc + (item.qty ?? 1), 0);
   setBasketQuantity(productsCount);
 }, [products]);
 

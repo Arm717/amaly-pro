@@ -51,8 +51,9 @@ export interface IProductsItem {
     
 }
 
-export interface IProductBasket extends IProductsItem {
-  quantity?: number;
+export interface IProductBasket  {
+  id:number;
+  qty?:number;
 }
 
  

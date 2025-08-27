@@ -1,10 +1,10 @@
 "use client"
 
-import { IProductBasket, IProductsItem } from '@/types/types';
+import { IProductBasket } from '@/types/types';
 import useLocalStorage from './useLocalStorage';
 
 function useProducts() {
-    const [products, setProducts] = useLocalStorage<IProductBasket[]>("cart", []);
+    const [products, setProducts] = useLocalStorage<IProductBasket[]>("guest_basket", []);
 
     const addToBasket = (product: IProductBasket) => {
         setProducts((prev) => {
@@ -12,11 +12,11 @@ function useProducts() {
           if (existing) {
             return prev.map((prevProduct) =>
               prevProduct.id === product.id
-                ? { ...prevProduct, quantity: (prevProduct.quantity ?? 1) + 1 }
+                ? { ...prevProduct, qty: (prevProduct.qty ?? 1) + 1 }
                 : prevProduct
             );
           }
-          return [...prev, { ...product, quantity: 1 }];
+          return [...prev, { ...product, qty: 1 }];
         });
       };
     
@@ -25,10 +25,10 @@ function useProducts() {
           prev
             .map((prevProduct) =>
               prevProduct.id === product.id
-                ? { ...prevProduct, quantity: (prevProduct.quantity ?? 1) - 1 }
+                ? { ...prevProduct, qty: (prevProduct.qty ?? 1) - 1 }
                 : prevProduct
             )
-            .filter((product) => (product.quantity ?? 1) > 0)
+            .filter((product) => (product.qty ?? 1) > 0)
         );
       };
     
