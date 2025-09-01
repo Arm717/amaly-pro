@@ -1,5 +1,5 @@
 import ButtonVector from '@/components/button/button-vector/ButtonVector';
-import FormInput from '@/components/form-input/FormInput';
+import FormInput from '@/components/input/form-input/FormInput';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React, { useState, useTransition } from 'react'

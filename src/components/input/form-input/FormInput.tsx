@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Input from '../input/Input';
-import ButtonIcon from '../button/buttonIcon/ButtonIcon';
-import Title from '../title/Title';
+import Input from '../Input';
+import ButtonIcon from '../../button/buttonIcon/ButtonIcon';
+import Title from '../../title/Title';
 
 type variant = "custom" | "password"
 

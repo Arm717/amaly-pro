@@ -6,7 +6,7 @@ import useSearchHook from "../../../../hooks/useSearchHook";
 import SearchBar from "../../header-search-bar/HeaderSearchBar";
 import ButtonIcon from "@/components/button/buttonIcon/ButtonIcon";
 import { useAuth } from "@/context/useAuthContext";
-import { logoutAction } from "@/context/action/logoutAction";
+import { logoutAction } from "@/components/header/action/logoutAction";
 
 interface IHeaderAside {
   closeAside: () => void;

@@ -1,6 +1,6 @@
 "use client";
 import ButtonVector from "@/components/button/button-vector/ButtonVector";
-import FormInput from "@/components/form-input/FormInput";
+import FormInput from "@/components/input/form-input/FormInput";
 import React, { useState, useTransition } from "react";
 import Link from "next/link";
 import { loginAction } from "../actions/loginAction";

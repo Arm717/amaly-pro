@@ -1,33 +1,35 @@
 "use client";
 import Title from "@/components/title/Title";
-import useLocalStorage from "@/context/hooks/useLocalStorage";
-import { IProductBasket, IProductsItem } from "@/types/types";
+import { IProductsItem } from "@/types/types";
 import { getBasketProductData } from "../services/getBasketProductData";
-import Section from "@/components/section/Section";
 import { useEffect, useState } from "react";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import BasketCard from "./BasketCard";
 import Image from "next/image";
 import ButtonVector from "@/components/button/button-vector/ButtonVector";
+import { useProductContext } from "@/context/useProductContext";
 
 function BasketSection() {
   const [basketProduct, setBasketProduct] = useState<IProductsItem[]>([]);
-  const [basketData] = useLocalStorage<IProductBasket[]>("guest_basket", []);
   const hasMounted = useHasMounted();
+  const { products, total, calculateBasket } = useProductContext();
 
   useEffect(() => {
-    if (!basketData?.length) return;
-    getBasketProductData(basketData).then(setBasketProduct);
-  }, [basketData]);
+    if (!products?.length) return;
+    getBasketProductData(products).then((data) => {
+      setBasketProduct(data);
+      calculateBasket(data);
+    });
+  }, [products]);
 
   if (!hasMounted) {
     return null;
   }
 
-  if (!basketData.length) {
+  if (!products.length) {
     return (
       <Title
-        className="font-firaGo font-semibold text-[40px]"
+        className="font-firaGo text-xl my-14 font-semibold lg:text-[40px] lg:my-auto "
         as="h2"
         value="Корзина пуста"
       />
@@ -35,10 +37,9 @@ function BasketSection() {
   }
 
   return (
-    <Section className="mx-2">
       <div className="grid grid-cols-1 gap-x-[50px] pt-[80px] lg:mb-[64px] lg:grid lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <div className="grid grid-cols-[100px_3fr_2fr_1fr_1fr] gap-x-[32px] pl-4 pr-[48px] mb-8 font-firaGo font-medium !text-2xl">
+          <div className="hidden lg:grid grid-cols-[100px_3fr_2fr_1fr_1fr] gap-x-[32px] pt-4 pr-12 pb-4 pl-4 mb-8 font-firaGo font-medium !text-2xl">
             <Title as="h6" value="Продукт" />
             <Title as="h6" value="" />
             <Title as="h6" value="Количество" />
@@ -57,7 +58,7 @@ function BasketSection() {
             <Title
               as="h2"
               className="text-[var(--yellow)] font-firaGoLight text-base flex items-center flex-wrap xl:text-2xl"
-              value={`Продуктов в корзине : 1 на сумму 610`}
+              value={`Продуктов в корзине : ${total.totalQuantity} на сумму ${total.totalPrice}`}
             />
             <Image
               className="w-4 h-4 yellow-filter"
@@ -71,7 +72,7 @@ function BasketSection() {
           <div className="flex justify-between items-center mb-4">
             <Title className="font-semibold text-base" as="h5" value="Товары" />
             <div className="flex">
-              <Title as="h4" value="1150" />
+              <Title as="h4" value={total.totalPrice} />
               <Image width={12} height={12} src="/rub.svg" alt="rub" />
             </div>
           </div>
@@ -83,7 +84,7 @@ function BasketSection() {
           <div className="flex justify-between items-center mt-4 mb-[22px]">
             <Title className="text-[var(--yellow)] text-2xl" as="h5" value="Итог" />
             <div className="flex justify-center text-center">
-              <Title className="text-[var(--yellow)] text-2xl" as="h5" value="1150" />
+              <Title className="text-[var(--yellow)] text-2xl" as="h5" value={total.totalPrice} />
               <Image
               src="/rub.svg"
               width={12}
@@ -94,12 +95,11 @@ function BasketSection() {
           
           </div>
           <div className="flex justify-center ">
-            <ButtonVector as="p" variant="bigFormVector" text="Оформить заказ" />
+            <ButtonVector  as="p" variant="bigFormVector" text="Оформить заказ" />
           </div>
           
         </div>
       </div>
-    </Section>
   );
 }
 

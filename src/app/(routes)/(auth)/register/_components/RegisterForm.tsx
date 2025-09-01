@@ -1,5 +1,5 @@
 import ButtonVector from "@/components/button/button-vector/ButtonVector";
-import FormInput from "@/components/form-input/FormInput";
+import FormInput from "@/components/input/form-input/FormInput";
 import Input from "@/components/input/Input";
 import Text from "@/components/text/Text";
 import Link from "next/link";
