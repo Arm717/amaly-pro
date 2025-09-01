@@ -10,13 +10,34 @@ import Title from "../title/Title";
 import Text from "../text/Text";
 import ButtonIcon from "../button/buttonIcon/ButtonIcon";
 import Button from "../button/Button";
+import { useAuth } from "@/context/useAuthContext";
+import addToBasketFetch from "./services/addToBasket";
+import { log } from "node:console";
 
 interface IProductCard {
   product: IProductsItem;
 }
 
 function ProductCard({ product }: IProductCard) {
-  const { addToBasket } = useProductContext();
+  const { addToBasket, setBasketQuantity } = useProductContext();
+  const { isAuthenticated } = useAuth();
+
+  const handleAddToBasket = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+      addToBasketFetch({id:product.id, qty: 1}).then((response) => {
+        if (response.success) { 
+          setBasketQuantity(Number(response.qty_count));
+          return;
+         }
+         else console.log('Failed to add to basket');
+       
+      }).catch((error) => {
+        console.error('Error adding to basket:', error);
+      });
+  }
+
   return (
     <>
       <Link
@@ -94,6 +115,9 @@ function ProductCard({ product }: IProductCard) {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
+                  if (isAuthenticated) {
+                    handleAddToBasket(e);
+                  }
                   addToBasket({id:product.id})
                 }}
               />

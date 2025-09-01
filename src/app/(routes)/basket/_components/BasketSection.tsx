@@ -8,19 +8,36 @@ import BasketCard from "./BasketCard";
 import Image from "next/image";
 import ButtonVector from "@/components/button/button-vector/ButtonVector";
 import { useProductContext } from "@/context/useProductContext";
+import { useAuth } from "@/context/useAuthContext";
+import getUserBaskentProductData from "../services/getUserBaskentProductData";
 
 function BasketSection() {
   const [basketProduct, setBasketProduct] = useState<IProductsItem[]>([]);
   const hasMounted = useHasMounted();
-  const { products, total, calculateBasket } = useProductContext();
+  const {isAuthenticated} = useAuth();
+  const { products, total, setTotal, calculateBasket } = useProductContext();
 
-  useEffect(() => {
-    if (!products?.length) return;
+ useEffect(() => {
+  if (!products?.length) return;
+
+  if (isAuthenticated) {
+    
+    getUserBaskentProductData().then((data) => {
+      setBasketProduct(data.basket);
+      setTotal({
+        totalQuantity: data.count,
+        totalPrice: data.total_price,
+      });
+    });
+  } else {
+    
     getBasketProductData(products).then((data) => {
       setBasketProduct(data);
       calculateBasket(data);
     });
-  }, [products]);
+  }
+}, [products, isAuthenticated]);
+
 
   if (!hasMounted) {
     return null;

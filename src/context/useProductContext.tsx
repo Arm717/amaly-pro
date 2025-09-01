@@ -14,6 +14,8 @@ interface ProductContextType {
   products: IProductBasket[];
   basketQuantity: number;
   total: { totalQuantity: number; totalPrice: number };
+  setTotal: (total: { totalQuantity: number; totalPrice: number }) => void;
+  setBasketQuantity: (qty: number) => void;
   addToBasket: (product: IProductBasket) => void;
   decreaseQuantity: (product: IProductBasket) => void;
   removeFromBasket: (productId: number) => void;
@@ -105,11 +107,13 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         products,
         basketQuantity,
         total,
+        setBasketQuantity,
         addToBasket,
         decreaseQuantity,
         removeFromBasket,
         calculateBasket,
         clearBasket,
+        setTotal
       }}
     >
       {children}

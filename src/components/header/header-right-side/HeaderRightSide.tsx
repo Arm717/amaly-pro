@@ -21,7 +21,7 @@ function HeaderRightSide({ categorie }: HeaderProps) {
   const [openBurger, setOpenBurger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const mounted = useHasMounted();
-  const { basketQuantity } = useProductContext();
+  const { basketQuantity, } = useProductContext();
   const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
 
